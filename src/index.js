@@ -1,3 +1,5 @@
+import Colors from './styles/colors';
 import * as Login from './components/Login';
 
-export { Login }
+
+export { Colors, Login }

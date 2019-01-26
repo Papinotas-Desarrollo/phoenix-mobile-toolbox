@@ -11,7 +11,7 @@ const TS_TEST_EXT = '.test.tsx';
 
 const transformContent = content =>
   content
-    .replace("'react-native-paper'", "'..'")
+    .replace("'phoenix-mobile-toolbox'", "'..'")
     .split('\n')
     .map(e => e.slice(3))
     .join('\n');
@@ -24,9 +24,9 @@ const getFiles = () =>
       const match = EXAMPLE_REGEX.exec(content);
       return match
         ? {
-            path: filePath,
-            content: transformContent(match[2]),
-          }
+          path: filePath,
+          content: transformContent(match[2]),
+        }
         : null;
     })
     .filter(Boolean);

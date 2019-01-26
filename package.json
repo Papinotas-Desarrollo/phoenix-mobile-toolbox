@@ -3,6 +3,15 @@
   "version": "1.0.0",
   "description": "Components for react-native",
   "main": "./src/index.js",
+  "typings": "typings/index.d.ts",
+  "types": "typings/index.d.ts",
+  "files": [
+    "src/",
+    "dist/",
+    "typings/",
+    "typings/index.d.ts",
+    "babel.js"
+  ],
   "scripts": {
     "typescript": "node ./scripts/generate-ts-tests.js && tsc --noEmit --skipLibCheck --jsx react ./__ts-tests__/*",
     "lint": "eslint .",
@@ -16,11 +25,13 @@
     "url": "git+https://github.com/Papinotas-Desarrollo/phoenix-mobile-toolbox.git"
   },
   "keywords": [
-    "[\"react-native\"",
-    "\"phoenix\"",
-    "\"papinotas\"",
-    "\"mobile\"",
-    "\"toolbox\"]"
+    "react-native",
+    "phoenix",
+    "papinotas",
+    "mobile",
+    "toolbox",
+    "androi",
+    "ios"
   ],
   "author": "Papinotas",
   "license": "ISC",
@@ -28,6 +39,11 @@
     "url": "https://github.com/Papinotas-Desarrollo/phoenix-mobile-toolbox/issues"
   },
   "homepage": "https://github.com/Papinotas-Desarrollo/phoenix-mobile-toolbox#readme",
+  "dependencies": {
+    "create-react-context": "^0.2.3",
+    "hoist-non-react-statics": "^3.1.0",
+    "react-lifecycles-compat": "^3.0.4"
+  },
   "devDependencies": {
     "@babel/core": "^7.1.2",
     "@babel/runtime": "^7.1.2",
@@ -73,5 +89,9 @@
     "watchPathIgnorePatterns": [
       "__fixtures__\\/[^/]+\\/(output|error)\\.js"
     ]
-  }
+  },
+  "resolutions": {
+    "**/babel-core": "7.0.0-bridge.0"
+  },
+  "sideEffects": false
 }

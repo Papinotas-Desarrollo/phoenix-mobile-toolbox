@@ -5,12 +5,13 @@ import colors from '../../styles/colors';
 
 const styles = StyleSheet.create({
   container: {
-    height: 150,
+    minHeight: 70,
     backgroundColor: colors.papinotasBlue,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'flex-end',
     paddingHorizontal: 10,
+    paddingVertical: 20,
   },
 });
 
@@ -28,4 +29,4 @@ LoginHeader.propTypes = {
 
 LoginHeader.default = {
   uri: '',
-}
+};

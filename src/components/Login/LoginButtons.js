@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import Proptypes from 'prop-types';
 
 const styles = StyleSheet.create({
@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row-reverse',
     justifyContent: 'flex-start',
     alignItems: 'center',
-    marginHorizontal: 10
+    marginHorizontal: 10,
   },
   nButtons: {
     flexDirection: 'row-reverse',
@@ -16,21 +16,23 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginHorizontal: 10,
   },
-  noButton: {}
+  noButton: {},
 });
 
 const LoginButtons = ({ children }) => {
-
   if (React.Children.count(children) === 1)
-    return (<View style={styles.singleButton}>{children}</View>);
+    return <View style={styles.singleButton}>{children}</View>;
   if (React.Children.count(children) > 1)
-    return (<View style={styles.nButtons}>{children}</View>);
-  else
-    return (<View style={styles.noButton}>{children}</View>);
+    return <View style={styles.nButtons}>{children}</View>;
+  return <View style={styles.noButton}>{children}</View>;
 };
 
 export default LoginButtons;
 
 LoginButtons.propTypes = {
   children: Proptypes.node,
+};
+
+LoginButtons.default = {
+  children: [],
 };

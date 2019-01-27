@@ -5,10 +5,9 @@ import Proptypes from 'prop-types';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 export default class LoginScreen extends React.Component {
-
   render() {
     const {
-      uri,
+      source,
       bodyTitle,
       bodySubtitle,
       beforeInputText,
@@ -20,8 +19,8 @@ export default class LoginScreen extends React.Component {
     } = this.props;
 
     return (
-      <KeyboardAwareScrollView keyboardShouldPersistTaps='always'>
-        <LoginHeader uri={uri} />
+      <KeyboardAwareScrollView keyboardShouldPersistTaps="always">
+        <LoginHeader source={source} />
         <LoginBody
           bodyTitle={bodyTitle}
           bodySubtitle={bodySubtitle}
@@ -38,7 +37,7 @@ export default class LoginScreen extends React.Component {
 }
 
 LoginScreen.propTypes = {
-  uri: Proptypes.string,
+  source: Proptypes.object,
   bodyTitle: Proptypes.string,
   bodySubtitle: Proptypes.string,
   beforeInputText: Proptypes.string,
@@ -50,7 +49,7 @@ LoginScreen.propTypes = {
 };
 
 LoginScreen.default = {
-  uri: '',
+  source: {},
   bodyTitle: '',
   bodySubtitle: '',
   beforeInputText: '',

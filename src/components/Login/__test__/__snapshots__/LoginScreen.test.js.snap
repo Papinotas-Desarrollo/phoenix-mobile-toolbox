@@ -1,0 +1,250 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot test With props snapshot 1`] = `
+<RCTScrollView
+  automaticallyAdjustContentInsets={false}
+  contentInset={
+    Object {
+      "bottom": 0,
+    }
+  }
+  enableAutomaticScroll={true}
+  enableOnAndroid={false}
+  enableResetScrollToCoords={true}
+  extraHeight={75}
+  extraScrollHeight={0}
+  getScrollResponder={[Function]}
+  handleOnScroll={[Function]}
+  keyboardDismissMode="interactive"
+  keyboardOpeningTime={250}
+  keyboardShouldPersistTaps="always"
+  keyboardSpace={0}
+  onScroll={[Function]}
+  resetKeyboardSpace={[Function]}
+  scrollEventThrottle={1}
+  scrollForExtraHeightOnAndroid={[Function]}
+  scrollIntoView={[Function]}
+  scrollToEnd={[Function]}
+  scrollToFocusedInput={[Function]}
+  scrollToPosition={[Function]}
+  showsVerticalScrollIndicator={true}
+  update={[Function]}
+  viewIsInsideTabBar={false}
+>
+  <View>
+    <RCTSafeAreaView
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#4A90E2",
+          "flexDirection": "row",
+          "justifyContent": "flex-end",
+          "minHeight": 70,
+          "paddingHorizontal": 10,
+          "paddingVertical": 20,
+        }
+      }
+    >
+      <View />
+    </RCTSafeAreaView>
+    <View
+      style={
+        Object {
+          "backgroundColor": "#4A90E2",
+          "flexDirection": "row",
+          "justifyContent": "flex-start",
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#FFFFFF",
+            "fontSize": 22,
+            "fontWeight": "600",
+            "marginBottom": 13,
+            "marginLeft": 13,
+          }
+        }
+      >
+        bodyTitle
+      </Text>
+    </View>
+    <View>
+      <Text
+        style={
+          Object {
+            "color": "#FF9500",
+            "fontSize": 20,
+            "marginBottom": 5,
+            "marginLeft": 13,
+            "marginTop": 9,
+          }
+        }
+      >
+        bodySubtitle
+      </Text>
+      <Text
+        style={
+          Object {
+            "fontSize": 16,
+            "marginBottom": 13,
+            "marginHorizontal": 13,
+          }
+        }
+      >
+        beforeInputText
+      </Text>
+      <TextInput
+        allowFontScaling={true}
+        onBlur={[Function]}
+        onChangeText={[Function]}
+        onFocus={[Function]}
+        placeholder="firstInputPlaceholder"
+        style={
+          Object {
+            "fontSize": 16,
+            "marginBottom": 10,
+            "marginLeft": 13,
+            "marginRight": 16,
+            "width": "100%",
+          }
+        }
+        underlineColorAndroid="transparent"
+      />
+      <View
+        style={
+          Array [
+            Object {
+              "borderBottomColor": "#D1D1D6",
+              "borderBottomWidth": 2,
+              "marginBottom": 42,
+              "marginHorizontal": 13,
+            },
+            null,
+          ]
+        }
+      />
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+            "marginHorizontal": 13,
+          }
+        }
+      >
+        <TextInput
+          allowFontScaling={true}
+          onBlur={[Function]}
+          onChangeText={[Function]}
+          onFocus={[Function]}
+          placeholder="secondInputPlaceholder"
+          secureTextEntry={true}
+          style={
+            Object {
+              "flex": 0.8,
+              "fontSize": 16,
+              "marginBottom": 10,
+            }
+          }
+          underlineColorAndroid="transparent"
+        />
+        <View
+          accessible={true}
+          isTVSelectable={true}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "flex": 0.2,
+            }
+          }
+        >
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": "#4A90E2",
+                  "fontSize": 30,
+                },
+                null,
+                Object {
+                  "fontFamily": "Material Icons",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "borderBottomColor": "#D1D1D6",
+              "borderBottomWidth": 2,
+              "marginBottom": 42,
+              "marginHorizontal": 13,
+            },
+            null,
+          ]
+        }
+      />
+    </View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row-reverse",
+          "flexWrap": "wrap",
+          "justifyContent": "space-between",
+          "marginHorizontal": 10,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      />
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      />
+    </View>
+  </View>
+</RCTScrollView>
+`;

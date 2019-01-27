@@ -8,6 +8,7 @@ export default class LoginScreen extends React.Component {
   render() {
     const {
       source,
+      headerStyle,
       bodyTitle,
       bodySubtitle,
       beforeInputText,
@@ -20,7 +21,7 @@ export default class LoginScreen extends React.Component {
 
     return (
       <KeyboardAwareScrollView keyboardShouldPersistTaps="always">
-        <LoginHeader source={source} />
+        <LoginHeader source={source} headerStyle={headerStyle} />
         <LoginBody
           bodyTitle={bodyTitle}
           bodySubtitle={bodySubtitle}
@@ -37,7 +38,8 @@ export default class LoginScreen extends React.Component {
 }
 
 LoginScreen.propTypes = {
-  source: Proptypes.object,
+  source: Proptypes.number,
+  headerStyle: Proptypes.object,
   bodyTitle: Proptypes.string,
   bodySubtitle: Proptypes.string,
   beforeInputText: Proptypes.string,
@@ -49,7 +51,7 @@ LoginScreen.propTypes = {
 };
 
 LoginScreen.default = {
-  source: {},
+  headerStyle: {},
   bodyTitle: '',
   bodySubtitle: '',
   beforeInputText: '',

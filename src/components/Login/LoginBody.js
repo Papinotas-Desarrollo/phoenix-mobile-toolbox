@@ -1,5 +1,11 @@
 import React from 'react';
-import { View, StyleSheet, Text, TextInput, TouchableHighlight } from 'react-native';
+import {
+  View,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableHighlight,
+} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Proptypes from 'prop-types';
 import colors from '../../styles/colors';
@@ -63,15 +69,13 @@ const styles = StyleSheet.create({
 });
 
 class LoginBody extends React.Component {
-
   state = {
     currentInputFocus: 0,
     secureText: true,
-    passwordHide: true
-  }
+    passwordHide: true,
+  };
 
   render() {
-
     const {
       bodyTitle,
       bodySubtitle,
@@ -87,17 +91,11 @@ class LoginBody extends React.Component {
     return (
       <React.Fragment>
         <View style={styles.title}>
-          <Text style={styles.titleText}>
-            {bodyTitle}
-          </Text>
+          <Text style={styles.titleText}>{bodyTitle}</Text>
         </View>
         <View>
-          <Text style={styles.subtitle}>
-            {bodySubtitle}
-          </Text>
-          <Text style={styles.beforeInputText}>
-            {beforeInputText}
-          </Text>
+          <Text style={styles.subtitle}>{bodySubtitle}</Text>
+          <Text style={styles.beforeInputText}>{beforeInputText}</Text>
           <TextInput
             style={styles.emailInput}
             placeholder={firstInputPlaceholder}
@@ -105,7 +103,12 @@ class LoginBody extends React.Component {
             onFocus={() => this.setState({ currentInputFocus: 1 })}
             onBlur={() => this.setState({ currentInputFocus: 0 })}
           />
-          <View style={[styles.lineGray, currentInputFocus === 1 ? styles.lineActive : null]} />
+          <View
+            style={[
+              styles.lineGray,
+              currentInputFocus === 1 ? styles.lineActive : null,
+            ]}
+          />
           <View style={styles.passwordInputContainer}>
             <TextInput
               style={styles.passwordInput}
@@ -119,10 +122,21 @@ class LoginBody extends React.Component {
               style={styles.passwordInputIcon}
               onPress={() => this.setState({ passwordHide: !passwordHide })}
             >
-              <Icon color={passwordHide ? colors.papinotasBlue : colors.papinotasOrange} size={30} name="remove-red-eye" />
+              <Icon
+                color={
+                  passwordHide ? colors.papinotasBlue : colors.papinotasOrange
+                }
+                size={30}
+                name="remove-red-eye"
+              />
             </TouchableHighlight>
           </View>
-          <View style={[styles.lineGray, currentInputFocus === 2 ? styles.lineActive : null]} />
+          <View
+            style={[
+              styles.lineGray,
+              currentInputFocus === 2 ? styles.lineActive : null,
+            ]}
+          />
         </View>
       </React.Fragment>
     );

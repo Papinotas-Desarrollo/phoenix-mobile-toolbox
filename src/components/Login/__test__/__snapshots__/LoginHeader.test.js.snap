@@ -18,7 +18,7 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "class",
     "props": Object {
-      "children": <View />,
+      "children": <Component />,
       "style": Object {
         "alignItems": "center",
         "backgroundColor": "#4A90E2",
@@ -34,7 +34,10 @@ ShallowWrapper {
       "instance": null,
       "key": undefined,
       "nodeType": "class",
-      "props": Object {},
+      "props": Object {
+        "source": undefined,
+        "style": undefined,
+      },
       "ref": null,
       "rendered": null,
       "type": [Function],
@@ -47,7 +50,7 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "class",
       "props": Object {
-        "children": <View />,
+        "children": <Component />,
         "style": Object {
           "alignItems": "center",
           "backgroundColor": "#4A90E2",
@@ -63,7 +66,10 @@ ShallowWrapper {
         "instance": null,
         "key": undefined,
         "nodeType": "class",
-        "props": Object {},
+        "props": Object {
+          "source": undefined,
+          "style": undefined,
+        },
         "ref": null,
         "rendered": null,
         "type": [Function],
@@ -101,7 +107,7 @@ ShallowWrapper {
   Symbol(enzyme.__unrendered__): <LoginHeader
     source={
       Object {
-        "testUri": "../../../src/assets/papinotascolegio.png",
+        "src": "../assets/papinotascolegio.png",
       }
     }
   />,
@@ -122,7 +128,7 @@ ShallowWrapper {
       "children": <Component
         source={
           Object {
-            "testUri": "../../../src/assets/papinotascolegio.png",
+            "src": "../assets/papinotascolegio.png",
           }
         }
       />,
@@ -143,8 +149,9 @@ ShallowWrapper {
       "nodeType": "class",
       "props": Object {
         "source": Object {
-          "testUri": "../../../src/assets/papinotascolegio.png",
+          "src": "../assets/papinotascolegio.png",
         },
+        "style": undefined,
       },
       "ref": null,
       "rendered": null,
@@ -161,7 +168,7 @@ ShallowWrapper {
         "children": <Component
           source={
             Object {
-              "testUri": "../../../src/assets/papinotascolegio.png",
+              "src": "../assets/papinotascolegio.png",
             }
           }
         />,
@@ -182,8 +189,9 @@ ShallowWrapper {
         "nodeType": "class",
         "props": Object {
           "source": Object {
-            "testUri": "../../../src/assets/papinotascolegio.png",
+            "src": "../assets/papinotascolegio.png",
           },
+          "style": undefined,
         },
         "ref": null,
         "rendered": null,

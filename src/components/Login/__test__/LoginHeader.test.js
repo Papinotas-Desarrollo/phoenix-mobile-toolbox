@@ -7,20 +7,29 @@ describe('Snapshot test', () => {
   it('No props snapshot', () => {
     const tree = shallow(<LoginHeader />);
     expect(tree).toMatchSnapshot();
-    expect(tree.children().find(Image).length).toBe(0);
-  });
-  it('With props snapshot', () => {
-    const source = require('../../../assets/papinotascolegio.png');
-    const props = {
-      source,
-    };
-    const tree = shallow(<LoginHeader {...props} />);
-    expect(tree).toMatchSnapshot();
     expect(
       tree
         .children()
         .find(Image)
-        .props().source.testUri
-    ).toBe(source.testUri);
+        .props().source
+    ).toBe(undefined);
+  });
+  it('With props snapshot', () => {
+    const src = '../assets/papinotascolegio.png';
+    const props = {
+      source: {
+        src,
+      },
+    };
+    const tree = shallow(<LoginHeader {...props} />);
+    expect(tree).toMatchSnapshot();
+    expect(tree.children().find(Image).length).toBe(1);
+    expect(
+      tree
+        .children()
+        .find(Image)
+        .first()
+        .props().source.src
+    ).toBe(src);
   });
 });

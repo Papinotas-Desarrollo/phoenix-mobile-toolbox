@@ -5,9 +5,6 @@ import Proptypes from 'prop-types';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 /**
- * A component to display action items in a bar. It can be placed at the top or bottom.
- * The top bar usually contains the screen title, controls such as navigation buttons, menu button etc.
- * The bottom bar usually provides access to a drawer and up to four actions.
  *
  * ## Usage
  * ```js

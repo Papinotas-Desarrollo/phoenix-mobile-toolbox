@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { StyleProp, ViewStyle, ViewProps, TouchableOpacityProps, ImageSourcePropType } from 'react-native';
-import { LoginHeader } from '../../src/components/Login';
+import { ImageSourcePropType } from 'react-native';
 
 export interface LoginHeaderProps{
   source?: ImageSourcePropType;
@@ -13,10 +12,12 @@ export interface LoginBodyProps{
   beforeInputText?: string;
   firstInputPlaceholder?: string;
   secondInputPlaceholder?: string;
+  onChangeEmail: (value: string) => any;
+  onChangePassword: (value: string) => any;
 }
 
 export interface LoginButtonsProps{
-  buttons: React.ReactNodeArray;
+  children: React.ReactNodeArray;
 }
 
 export declare class LoginScreen extends React.Component<LoginHeaderProps, LoginBodyProps, LoginButtonsProps> {}

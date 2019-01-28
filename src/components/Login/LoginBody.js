@@ -10,6 +10,37 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import Proptypes from 'prop-types';
 import colors from '../../styles/colors';
 
+/**
+ * 
+ * ## Usage
+ * ```js
+ *  
+ * import * as React from 'react';
+ * import { Login } from 'phoenix-mobile-toolbox';
+ * 
+ * export default class LoginBodyContainer extends React.Component {
+ *    
+ *    onChangeEmail = (text) => console.log(text)
+ *    onChangePassword = (text) => console.log(text)
+ * 
+ *    render(){
+ *      const props = {
+ *        bodyTitle: '',
+ *        bodySubtitle: '',
+ *        beforeInputText: '',
+ *        firstInputPlaceholder: '',
+ *        secondInputPlaceholder: '',
+ *        onChangeEmail: this.onChangeEmail,
+ *        onChangePassword: this.onChangeEmail,
+ *      };
+ * 
+ *      return <Login.LoginBody {...props}/>
+ *    }
+ * }
+ *
+ * ```
+ */
+
 const styles = StyleSheet.create({
   title: {
     backgroundColor: colors.papinotasBlue,

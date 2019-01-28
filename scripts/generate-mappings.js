@@ -25,6 +25,7 @@ const relative = (value /* : string */) =>
   );
 
 const mappings = ast.program.body.reduce((acc, declaration, index, self) => {
+  console.log(source)
   if (types.isExportNamedDeclaration(declaration)) {
     if (declaration.source) {
       declaration.specifiers.forEach(specifier => {

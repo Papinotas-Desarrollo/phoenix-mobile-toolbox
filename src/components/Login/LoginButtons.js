@@ -2,6 +2,29 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import Proptypes from 'prop-types';
 
+/**
+ *
+ * ## Usage
+ * ```js
+ *  
+ * import * as React from 'react';
+ * import { TouchableOpacity } from 'react-native';
+ * import { Login } from 'phoenix-mobile-toolbox';
+ * 
+ * export default class LoginButtonsContainer extends React.Component {
+ *    render(){
+ *      const buttons = [ 
+ *          <TouchableOpacity key="1"></TouchableOpacity>, 
+ *          <TouchableOpacity key="2"></TouchableOpacity>
+ *      ];
+ * 
+ *      return <Login.LoginButtons>{buttons}</Login.LoginButtons>
+ *    }
+ * }
+ *
+ * ```
+ */
+
 const styles = StyleSheet.create({
   singleButton: {
     flexDirection: 'row-reverse',

@@ -4,6 +4,48 @@ import { LoginHeader, LoginBody, LoginButtons } from './';
 import Proptypes from 'prop-types';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
+/**
+ *
+ * ## Usage
+ * ```js
+ *  
+ * import * as React from 'react';
+ * import { TouchableOpacity, StyleSheet, Text } from 'react-native';
+ * import { Login } from 'phoenix-mobile-toolbox';
+ * 
+ * const styles = StyleSheet.create({
+ *   headerStyle: {},
+ * });
+ * 
+ * export default class LoginContainer extends React.Component {
+ *   getEmail = text => console.log(text);
+ *   getPassword = text => console.log(text);
+ * 
+ *   render() {
+ *     const buttons = [
+ *       <TouchableOpacity key="key1"><Text>Button1</Text></TouchableOpacity>,
+ *       <TouchableOpacity key="key2"><Text>Button1</Text></TouchableOpacity>,
+ *     ];
+ * 
+ *     const props = {
+ *       source: require('..'),
+ *       headerStyle: styles.headerStyle,
+ *       bodyTitle: '',
+ *       bodySubtitle: '',
+ *       beforeInputText: '',
+ *       firstInputPlaceholder: 'ejemplo@gmail.com',
+ *       secondInputPlaceholder: 'password',
+ *       onChangeEmail: this.getEmail,
+ *       onChangePassword: this.getPassword,
+ *       buttons,
+ *     };
+ * 
+ *     return <Login.LoginScreen {...props} />;
+ *   }
+ * }
+ *
+ * ```
+ */
 export default class LoginScreen extends React.Component {
   render() {
     const {

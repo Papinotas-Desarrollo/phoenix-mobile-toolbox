@@ -1,6 +1,4 @@
-/* @flow */
-
-import Colors from './styles/colors';
+import Colors from './Colors';
 import * as Login from './components/Login';
 
 export { Colors, Login }

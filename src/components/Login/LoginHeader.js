@@ -3,6 +3,23 @@ import { SafeAreaView, StyleSheet, Image } from 'react-native';
 import Proptypes from 'prop-types';
 import colors from '../../styles/colors';
 
+/**
+ *
+ * ## Usage
+ * ```js
+ *  
+ * import * as React from 'react';
+ * import { Login } from 'phoenix-mobile-toolbox';
+ * 
+ * export default class LoginHeaderContainer extends React.Component {
+ *    render(){
+ *      return <Login.LoginHeader source={require('..')} headerStyle={{ margin: 0 }}/>
+ *    }
+ * }
+ *
+ * ```
+ */
+
 const styles = StyleSheet.create({
   container: {
     minHeight: 70,

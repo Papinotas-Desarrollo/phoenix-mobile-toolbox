@@ -9,7 +9,7 @@ module.exports = function rewire(babel) {
     visitor: {
       ImportDeclaration(path) {
         if (
-          path.node.source.value !== 'react-native-paper' ||
+          path.node.source.value !== 'phoenix-mobile-toolbox' ||
           path.node[SKIP]
         ) {
           return;

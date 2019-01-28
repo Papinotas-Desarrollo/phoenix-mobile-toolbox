@@ -16,6 +16,7 @@ const transformContent = content =>
     .map(e => e.slice(3))
     .join('\n');
 
+
 const getFiles = () =>
   glob
     .sync(SOURCE_FILES_PATTERN)
@@ -33,7 +34,6 @@ const getFiles = () =>
 
 const writeFiles = files => {
   mkdirSync(DESTINATION_DIR);
-
   files.forEach(f =>
     writeFileSync(
       path.join(

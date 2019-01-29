@@ -1,6 +1,6 @@
 {
-  "name": "phoenix-mobile-toolbox",
-  "version": "1.0.0",
+  "name": "@papinotas/phoenix-mobile-toolbox",
+  "version": "0.0.1-alpha.1",
   "description": "Components for react-native",
   "main": "./src/index.js",
   "typings": "typings/index.d.ts",

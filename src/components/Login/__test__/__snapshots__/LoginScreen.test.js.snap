@@ -45,7 +45,9 @@ exports[`Snapshot test With props snapshot 1`] = `
         }
       }
     >
-      <View />
+      <Image
+        source={Object {}}
+      />
     </RCTSafeAreaView>
     <View
       style={

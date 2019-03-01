@@ -153,13 +153,20 @@ class LoginBody extends React.Component {
               style={styles.passwordInputIcon}
               onPress={() => this.setState({ passwordHide: !passwordHide })}
             >
-              <Icon
-                color={
-                  passwordHide ? colors.papinotasBlue : colors.papinotasOrange
-                }
-                size={30}
-                name="remove-red-eye"
-              />
+              {
+                passwordHide
+                  ? <Icon
+                    color={colors.papinotasBlue}
+                    size={30}
+                    name="remove-red-eye"
+                  />
+                  : <Icon
+                    color={colors.papinotasOrange}
+                    size={30}
+                    name="remove-red-eye"
+                  />
+              }
+
             </TouchableHighlight>
           </View>
           <View

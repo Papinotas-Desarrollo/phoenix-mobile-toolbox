@@ -133,6 +133,8 @@ class LoginBody extends React.Component {
             onChangeText={text => onChangeEmail(text)}
             onFocus={() => this.setState({ currentInputFocus: 1 })}
             onBlur={() => this.setState({ currentInputFocus: 0 })}
+            keyboardType='email-address'
+            autoCapitalize={false}
           />
           <View
             style={[
@@ -148,18 +150,19 @@ class LoginBody extends React.Component {
               onChangeText={text => onChangePassword(text)}
               onFocus={() => this.setState({ currentInputFocus: 2 })}
               onBlur={() => this.setState({ currentInputFocus: 0 })}
+              autoCapitalize={false}
             />
             <TouchableHighlight
+              underlayColor={colors.transparent}
               style={styles.passwordInputIcon}
               onPress={() => this.setState({ passwordHide: !passwordHide })}
             >
               <Icon
-                color={
-                  passwordHide ? colors.papinotasBlue : colors.papinotasOrange
-                }
+                color={passwordHide ? colors.papinotasBlue : colors.papinotasOrange}
                 size={30}
                 name="remove-red-eye"
               />
+
             </TouchableHighlight>
           </View>
           <View

@@ -158,7 +158,7 @@ class LoginBody extends React.Component {
               onPress={() => this.setState({ passwordHide: !passwordHide })}
             >
               <Icon
-                color={passwordHide ? colors.papinotasOrange : colors.papinotasBlue}
+                color={passwordHide ? colors.papinotasBlue : colors.papinotasOrange}
                 size={30}
                 name="remove-red-eye"
               />

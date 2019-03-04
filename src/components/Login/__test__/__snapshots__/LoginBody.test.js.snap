@@ -52,6 +52,8 @@ Array [
     </Text>
     <TextInput
       allowFontScaling={true}
+      autoCapitalize={false}
+      keyboardType="email-address"
       onBlur={[Function]}
       onChangeText={[Function]}
       onFocus={[Function]}
@@ -92,6 +94,7 @@ Array [
     >
       <TextInput
         allowFontScaling={true}
+        autoCapitalize={false}
         onBlur={[Function]}
         onChangeText={[Function]}
         onFocus={[Function]}

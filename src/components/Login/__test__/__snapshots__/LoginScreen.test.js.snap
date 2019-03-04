@@ -99,6 +99,8 @@ exports[`Snapshot test With props snapshot 1`] = `
       </Text>
       <TextInput
         allowFontScaling={true}
+        autoCapitalize={false}
+        keyboardType="email-address"
         onBlur={[Function]}
         onChangeText={[Function]}
         onFocus={[Function]}
@@ -139,6 +141,7 @@ exports[`Snapshot test With props snapshot 1`] = `
       >
         <TextInput
           allowFontScaling={true}
+          autoCapitalize={false}
           onBlur={[Function]}
           onChangeText={[Function]}
           onFocus={[Function]}

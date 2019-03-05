@@ -1,0 +1,115 @@
+{
+  "name": "@papinotas/phoenix-mobile-toolbox",
+  "version": "0.0.1-alpha.2",
+  "description": "Components for react-native",
+  "main": "./src/index.js",
+  "typings": "typings/index.d.ts",
+  "files": [
+    "src/",
+    "dist/",
+    "typings/",
+    "babel.js"
+  ],
+  "scripts": {
+    "typescript": "node ./scripts/generate-ts-tests.js && tsc --noEmit --skipLibCheck --jsx react ./__ts-tests__/*",
+    "lint": "eslint .",
+    "test": "jest",
+    "prepare": "node ./scripts/generate-mappings",
+    "bootstrap": "yarn && yarn --cwd example && yarn --cwd docs",
+    "release": "release-it"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Papinotas-Desarrollo/phoenix-mobile-toolbox.git"
+  },
+  "keywords": [
+    "react-native",
+    "phoenix",
+    "papinotas",
+    "mobile",
+    "toolbox",
+    "androi",
+    "ios"
+  ],
+  "author": "Papinotas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Papinotas-Desarrollo/phoenix-mobile-toolbox/issues"
+  },
+  "homepage": "https://github.com/Papinotas-Desarrollo/phoenix-mobile-toolbox#readme",
+  "dependencies": {
+    "create-react-context": "^0.2.3",
+    "hoist-non-react-statics": "^3.1.0",
+    "react-lifecycles-compat": "^3.0.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/runtime": "^7.1.2",
+    "@types/react": "^16.4.18",
+    "@types/react-native": "^0.57.7",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^23.6.0",
+    "babel-test": "^0.1.1",
+    "chalk": "^2.4.1",
+    "conventional-changelog-cli": "^2.0.11",
+    "dedent": "^0.7.0",
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.8.0",
+    "eslint": "^4.19.1",
+    "eslint-config-callstack-io": "^1.1.1",
+    "eslint-plugin-prettier": "^3.0.0",
+    "eslint-plugin-react-native": "^3.5.0",
+    "flow-bin": "~0.78.0",
+    "glob": "^7.1.3",
+    "husky": "^1.1.3",
+    "jest": "^23.6.0",
+    "jest-enzyme": "^7.0.1",
+    "jest-file-snapshot": "^0.3.2",
+    "jsdom": "^13.2.0",
+    "metro-react-native-babel-preset": "^0.49.0",
+    "prettier": "^1.14.3",
+    "react": "16.6.0-alpha.8af6728",
+    "react-dom": "16.6.0-alpha.8af6728",
+    "react-native": "~0.57.4",
+    "react-native-keyboard-aware-scroll-view": "^0.8.0",
+    "react-native-vector-icons": "~6.0.2",
+    "react-test-renderer": "16.6.0-alpha.8af6728",
+    "release-it": "^7.6.2",
+    "rimraf": "^2.6.2",
+    "typescript": "^3.1.6"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*",
+    "react-native-vector-icons": "*"
+  },
+  "jest": {
+    "automock": false,
+    "globals": {
+      "window": true
+    },
+    "preset": "react-native",
+    "setupTestFrameworkScriptFile": "<rootDir>setup-test.js",
+    "testEnvironment": "node",
+    "transform": {
+      "^.+\\.(js|jsx|mjs)$": "<rootDir>/node_modules/babel-jest"
+    },
+    "moduleFileExtensions": [
+      "web.js",
+      "js",
+      "json",
+      "web.jsx",
+      "jsx",
+      "node",
+      "mjs"
+    ],
+    "modulePaths": [
+      "<rootDir>/node_modules"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/app/conf"
+    ]
+  }
+}

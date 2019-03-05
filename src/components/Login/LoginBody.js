@@ -133,8 +133,8 @@ class LoginBody extends React.Component {
             onChangeText={text => onChangeEmail(text)}
             onFocus={() => this.setState({ currentInputFocus: 1 })}
             onBlur={() => this.setState({ currentInputFocus: 0 })}
-            keyboardType='email-address'
-            autoCapitalize={false}
+            keyboardType="email-address"
+            autoCapitalize="none"
           />
           <View
             style={[
@@ -150,7 +150,7 @@ class LoginBody extends React.Component {
               onChangeText={text => onChangePassword(text)}
               onFocus={() => this.setState({ currentInputFocus: 2 })}
               onBlur={() => this.setState({ currentInputFocus: 0 })}
-              autoCapitalize={false}
+              autoCapitalize="none"
             />
             <TouchableHighlight
               underlayColor={colors.transparent}

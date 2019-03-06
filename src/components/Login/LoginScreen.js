@@ -2,7 +2,7 @@
 import React from 'react';
 import { LoginHeader, LoginBody, LoginButtons } from './';
 import Proptypes from 'prop-types';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { KeyboardAvoidingView } from 'react-native';
 
 /**
  *
@@ -62,7 +62,7 @@ export default class LoginScreen extends React.Component {
     } = this.props;
 
     return (
-      <KeyboardAwareScrollView keyboardShouldPersistTaps="always">
+      <KeyboardAvoidingView behavior="position" keyboardVerticalOffset={64}>
         <LoginHeader source={source} headerStyle={headerStyle} />
         <LoginBody
           bodyTitle={bodyTitle}
@@ -74,7 +74,7 @@ export default class LoginScreen extends React.Component {
           onChangePassword={onChangePassword}
         />
         <LoginButtons>{buttons}</LoginButtons>
-      </KeyboardAwareScrollView>
+      </KeyboardAvoidingView>
     );
   }
 }

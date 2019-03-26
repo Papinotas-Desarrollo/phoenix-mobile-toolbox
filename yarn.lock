@@ -7483,6 +7483,11 @@ react-lifecycles-compat@^3.0.4:
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
 
+react-native-error-boundary@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/react-native-error-boundary/-/react-native-error-boundary-1.0.0.tgz#7c90b6c5c052ded8cd166800368b96a42d7c9e89"
+  integrity sha512-zqmNUL7cohuhHY+/Z+JqskmSKk00rDH8HJKuQkcGMFQd/fCsXnx0BYXatMc86Yr3KOF9TA/TyryWUS1l701pDQ==
+
 react-native-iphone-x-helper@^1.0.3:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/react-native-iphone-x-helper/-/react-native-iphone-x-helper-1.2.0.tgz#9f8a376eb00bc712115abff4420318a0063fa796"

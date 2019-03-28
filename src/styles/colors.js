@@ -22,6 +22,7 @@ const colors = {
   mediumGray: '#9a9a9a',
   blueFilter: '#7dafef',
   backgroundGrey: '#3690E9',
+  fadedGray: '#00000080',
 };
 
 export default colors;

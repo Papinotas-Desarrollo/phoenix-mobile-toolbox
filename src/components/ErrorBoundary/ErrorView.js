@@ -1,52 +1,51 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  SafeAreaView,
-  Text,
-  TouchableOpacity,
-  ScrollView,
-  View,
-  StyleSheet,
-  Modal,
-  StatusBar,
-} from 'react-native';
-import { TextInput } from 'react-native-paper';
+import React from 'react';
+import { Modal, SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Appbar, TextInput } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Dictionary from '../../conf/dictionary';
 import colors from '../../styles/colors';
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: colors.white,
+    backgroundColor: colors.papinotasBlue,
     flex: 1,
     justifyContent: 'center',
   },
   content: {
-    marginHorizontal: 16,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   title: {
     fontSize: 48,
     fontWeight: '300',
     paddingBottom: 16,
-    marginTop: 20,
+    color: colors.white,
   },
   subtitle: {
-    marginBottom: 20,
-    fontSize: 32,
-    fontWeight: '800',
+    fontSize: 20,
+    fontWeight: '400',
+    color: colors.white,
+    width: 150,
+    textAlign: 'center',
   },
   error: {
     paddingVertical: 16,
+    color: colors.white,
   },
   button: {
+    marginTop: 150,
     backgroundColor: colors.papinotasBlue,
-    borderRadius: 50,
     padding: 16,
+    borderRadius: 25,
+    borderWidth: 1,
+    borderColor: colors.white,
+  },
+  modalButtons: {
+    marginTop: 0,
   },
   buttonText: {
     color: colors.white,
-    fontWeight: '600',
-    textAlign: 'center',
   },
   modalContainer: {
     flex: 1,
@@ -56,25 +55,38 @@ const styles = StyleSheet.create({
     backgroundColor: colors.fadedGray,
   },
   modalContent: {
-    width: 300,
-    height: 100,
+    alignItems: 'center',
     backgroundColor: colors.white,
-    padding: 20,
+    borderRadius: 10,
+    borderColor: colors.white,
+    borderWidth: 1,
+    width: '80%',
+    paddingHorizontal: 20,
+    justifyContent: 'center',
   },
   buttonsContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-  },
-  inputContainer: {
-    padding: 10,
+    marginVertical: 10,
+    marginHorizontal: 10,
   },
   appBarContainer: {
     backgroundColor: colors.papinotasBlue,
+    elevation: 0,
   },
   modalOpen: {
     height: 180,
   },
+  modalTextInput: {
+    height: 50,
+    width: '100%',
+  },
+  iconRotation: {
+    transform: [{ rotate: '45deg' }],
+  },
 });
+
+const retryCounter = 10;
 
 class ErrorView extends React.PureComponent {
   state = {
@@ -91,7 +103,7 @@ class ErrorView extends React.PureComponent {
   showError = () => {
     const { counter, text } = this.state;
     const { secure } = this.props;
-    if (counter > 10 && text === secure) {
+    if (counter > retryCounter && text === secure) {
       this.modalHandler(false);
       return true;
     }
@@ -103,30 +115,33 @@ class ErrorView extends React.PureComponent {
     const { error, resetError } = this.props;
     return (
       <React.Fragment>
-        <StatusBar barStyle="dark-content" />
         <SafeAreaView style={styles.container}>
-          <View>
-            <TouchableOpacity
+          <Appbar.Header style={styles.appBarContainer}>
+            <Appbar.Content title={''} />
+            <Appbar.Action
+              icon="more-vert"
               onPress={() => this.modalHandler(true)}
-            >
-              <Icon
-                icon="more-vert"
-                color={colors.white}
-              />
-            </TouchableOpacity>
-          </View>
+              color={colors.white}
+            />
+          </Appbar.Header>
           <ScrollView>
             <View style={styles.content}>
+              <Icon
+                style={styles.iconRotation}
+                size={250}
+                name="add-circle-outline"
+                color={colors.white}
+              />
               <Text style={styles.title}>{Dictionary.errors.errorTitle}</Text>
               <Text style={styles.subtitle}>{Dictionary.errors.errorText}</Text>
-              {this.showError() ? (
-                <Text style={styles.error}>{error.toString()}</Text>
-              ) : null}
               <TouchableOpacity style={styles.button} onPress={resetError}>
                 <Text style={styles.buttonText}>
                   {Dictionary.general.tryAgain}
                 </Text>
               </TouchableOpacity>
+              {this.showError() ? (
+                <Text style={styles.error}>{error.toString()}</Text>
+              ) : null}
             </View>
           </ScrollView>
         </SafeAreaView>
@@ -141,24 +156,21 @@ class ErrorView extends React.PureComponent {
             <View
               style={[
                 styles.modalContent,
-                counter > 10 ? styles.modalOpen : {},
+                counter > retryCounter ? styles.modalOpen : {},
               ]}
             >
-              {counter > 10 ? (
-                <View style={styles.inputContainer}>
-                  <TextInput
-                    label=""
-                    value={text}
-                    onChangeText={textInput =>
-                      this.setState({ text: textInput })
-                    }
-                    secureTextEntry
-                  />
-                </View>
+              {counter > retryCounter ? (
+                <TextInput
+                  style={styles.modalTextInput}
+                  label=""
+                  value={text}
+                  onChangeText={textInput => this.setState({ text: textInput })}
+                  secureTextEntry
+                />
               ) : null}
               <View style={styles.buttonsContainer}>
                 <TouchableOpacity
-                  style={styles.button}
+                  style={[styles.button, styles.modalButtons]}
                   onPress={() => this.updateCounter()}
                 >
                   <Text style={styles.buttonText}>
@@ -166,7 +178,7 @@ class ErrorView extends React.PureComponent {
                   </Text>
                 </TouchableOpacity>
                 <TouchableOpacity
-                  style={styles.button}
+                  style={[styles.button, styles.modalButtons]}
                   onPress={() => this.modalHandler(false)}
                 >
                   <Text style={styles.buttonText}>{Dictionary.general.ok}</Text>

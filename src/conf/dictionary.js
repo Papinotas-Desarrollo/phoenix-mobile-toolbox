@@ -1,7 +1,7 @@
 const Dictionary = {
   errors: {
-    errorText: 'Ocurrió un error',
-    errorTitle: 'Ups',
+    errorText: 'Ocurrió un error en el sistema.',
+    errorTitle: 'UPS!',
     warning: 'Aviso',
   },
   general: {

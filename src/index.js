@@ -1,6 +1,7 @@
 /* @flow */
 
-import Colors from './styles/colors';
+import colors from './styles/colors';
 import * as Login from './components/Login';
+import { ErrorBoundaryWrapper } from './components/ErrorBoundary';
 
-export { Colors, Login }
+export { colors, Login, ErrorBoundaryWrapper };

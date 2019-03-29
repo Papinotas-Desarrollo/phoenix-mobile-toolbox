@@ -20,6 +20,7 @@ declare const Colors: {
   mediumGray: string;
   blueFilter: string;
   backgroundGrey: string;
+  fadedGray: string;
 }
 
 export default Colors;

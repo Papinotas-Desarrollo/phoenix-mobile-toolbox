@@ -3,9 +3,20 @@ import React from 'react';
 import ErrorBoundary from 'react-native-error-boundary';
 import { ErrorView } from './';
 
-const Wrapper = ({ children, secure }) => {
+const Wrapper = ({
+  children,
+  secure,
+  account,
+  appVersion,
+  phoneInfo,
+  osVersion,
+}) => {
   ErrorView.defaultProps = {
     secure,
+    account,
+    appVersion,
+    phoneInfo,
+    osVersion,
   };
   return (
     <ErrorBoundary FallbackComponent={ErrorView}>{children}</ErrorBoundary>
@@ -15,6 +26,10 @@ const Wrapper = ({ children, secure }) => {
 Wrapper.propTypes = {
   children: PropTypes.object.isRequired,
   secure: PropTypes.string.isRequired,
+  account: PropTypes.func.isRequired,
+  appVersion: PropTypes.string.isRequired,
+  phoneInfo: PropTypes.string.isRequired,
+  osVersion: PropTypes.string.isRequired,
 };
 
 export default Wrapper;

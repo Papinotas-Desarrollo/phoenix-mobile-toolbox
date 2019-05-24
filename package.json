@@ -76,10 +76,12 @@
     "react-dom": "16.6.0-alpha.8af6728",
     "react-native": "~0.57.4",
     "react-native-keyboard-aware-scroll-view": "^0.8.0",
+    "react-native-testing-library": "^1.7.0",
     "react-test-renderer": "16.6.0-alpha.8af6728",
     "release-it": "^7.6.2",
     "rimraf": "^2.6.2",
-    "typescript": "^3.1.6"
+    "typescript": "^3.1.6",
+    "waait": "^1.0.4"
   },
   "peerDependencies": {
     "react": "*",

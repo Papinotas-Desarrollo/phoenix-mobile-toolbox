@@ -5,10 +5,8 @@ export interface ErrorBoundaryProps{
   secure?: String;
   style?: StyleProp;
   children: React.ReactChild;
-  account:()=>any;
-  appVersion?: string;
-  phoneInfo?: string;
-  osVersion?: string;
+  phoneFunction: () => any;
+  emailFunction: () => any;
 }
 
 export declare class ErrorBoundaryWrapper extends React.Component<ErrorBoundaryProps>{}

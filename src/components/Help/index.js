@@ -1,3 +1,3 @@
-import HelpAccordion, { sendEmail } from './HelpAccordion';
+import HelpAccordion from './HelpAccordion';
 
-export { HelpAccordion, sendEmail };
+export { HelpAccordion };

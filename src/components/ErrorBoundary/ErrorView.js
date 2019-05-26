@@ -8,13 +8,11 @@ import {
   Text,
   TouchableOpacity,
   View,
-  Linking,
 } from 'react-native';
 import { Appbar, TextInput } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Dictionary from '../../conf/dictionary';
 import colors from '../../styles/colors';
-import { sendEmail } from '../Help/HelpAccordion';
 
 const styles = StyleSheet.create({
   container: {
@@ -132,15 +130,9 @@ class ErrorView extends React.PureComponent {
     return false;
   };
 
-  compose = async (appVersion, phoneInfo, osVersion, error) => {
-    const { account } = this.props;
-    const currentAccount = await account();
-    sendEmail(appVersion, phoneInfo, osVersion, currentAccount, error);
-  };
-
   render() {
     const { counter, text, visible } = this.state;
-    const { error, resetError, appVersion, phoneInfo, osVersion } = this.props;
+    const { error, resetError, phoneFunction, emailFunction } = this.props;
 
     return (
       <React.Fragment>
@@ -171,24 +163,13 @@ class ErrorView extends React.PureComponent {
               <View style={styles.helpButtonsContainer}>
                 <TouchableOpacity
                   style={styles.helpButton}
-                  onPress={() => {
-                    Linking.openURL(
-                      `tel:${Dictionary.help.supportPhoneNumber}`
-                    );
-                  }}
+                  onPress={() => phoneFunction()}
                 >
                   <Icon size={25} name="call" color={colors.white} />
                 </TouchableOpacity>
                 <TouchableOpacity
                   style={styles.helpButton}
-                  onPress={() => {
-                    this.compose(
-                      appVersion,
-                      phoneInfo,
-                      osVersion,
-                      error
-                    );
-                  }}
+                  onPress={() => emailFunction()}
                 >
                   <Icon size={25} name="email" color={colors.white} />
                 </TouchableOpacity>

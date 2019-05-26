@@ -1,6 +1,6 @@
 import { shallow } from 'enzyme';
 import * as React from 'react';
-import { TouchableOpacity, Linking } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 import { Appbar, TextInput } from 'react-native-paper';
 import renderer from 'react-test-renderer';
 import wait from 'waait';
@@ -11,10 +11,8 @@ describe('Snapshot test', () => {
     const props = {
       error: '',
       resetError: jest.fn(),
-      appVersion: '',
-      phoneInfo: '',
-      osVersion: '',
-      account: {},
+      phoneFunction: jest.fn(),
+      emailFunction: jest.fn(),
     };
     const tree = renderer.create(<ErrorView {...props} />).toJSON();
     expect(tree).toMatchSnapshot();
@@ -26,10 +24,8 @@ describe('Functionality test', () => {
     const props = {
       error: '',
       resetError: jest.fn(),
-      appVersion: '',
-      phoneInfo: '',
-      osVersion: '',
-      account: {},
+      phoneFunction: jest.fn(),
+      emailFunction: jest.fn(),
     };
     const wrapper = shallow(<ErrorView {...props} />);
 
@@ -46,10 +42,8 @@ describe('Functionality test', () => {
     const props = {
       error: '',
       resetError: jest.fn(),
-      appVersion: '',
-      phoneInfo: '',
-      osVersion: '',
-      account: {},
+      phoneFunction: jest.fn(),
+      emailFunction: jest.fn(),
     };
     const wrapper = shallow(<ErrorView {...props} />);
     const button = wrapper
@@ -73,36 +67,30 @@ describe('Functionality test', () => {
     expect(wrapper.state().counter).toBe(11);
     expect(wrapper.find(TextInput).length).toBe(1);
   });
-  it('click phone button calls Linking OpenURL', async () => {
+  it('click phone button calls phoneFunction', async () => {
     const props = {
       error: '',
       resetError: jest.fn(),
-      appVersion: '',
-      phoneInfo: '',
-      osVersion: '',
-      account: {},
+      phoneFunction: jest.fn(),
+      emailFunction: jest.fn(),
     };
     const wrapper = shallow(<ErrorView {...props} />);
-    const spy = jest.spyOn(Linking, 'openURL');
     const button = wrapper.find(TouchableOpacity).at(1);
     button.props().onPress();
-    wait(2);
-    expect(spy).toBeCalled();
+    await wait(1);
+    expect(props.phoneFunction).toHaveBeenCalled();
   });
-  it('click email button calls compose function', async () => {
+  it('click email button calls emailFunction', async () => {
     const props = {
       error: '',
       resetError: jest.fn(),
-      appVersion: '',
-      phoneInfo: '',
-      osVersion: '',
-      account: {},
+      phoneFunction: jest.fn(),
+      emailFunction: jest.fn(),
     };
     const wrapper = shallow(<ErrorView {...props} />);
-    const spy = jest.spyOn(wrapper.instance(), 'compose');
     const button = wrapper.find(TouchableOpacity).at(2);
     button.props().onPress();
-    wait(2);
-    expect(spy).toBeCalled();
+    await wait(2);
+    expect(props.emailFunction).toHaveBeenCalled();
   });
 });

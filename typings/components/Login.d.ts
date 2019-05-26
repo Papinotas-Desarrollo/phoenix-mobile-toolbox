@@ -14,6 +14,8 @@ export interface LoginBodyProps{
   secondInputPlaceholder?: string;
   onChangeEmail: (value: string) => any;
   onChangePassword: (value: string) => any;
+  phoneFunction: () => any;
+  emailFunction: () => any;
 }
 
 export interface LoginButtonsProps{

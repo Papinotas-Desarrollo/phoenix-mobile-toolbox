@@ -11,18 +11,18 @@ import Proptypes from 'prop-types';
 import colors from '../../styles/colors';
 
 /**
- * 
+ *
  * ## Usage
  * ```js
- *  
+ *
  * import * as React from 'react';
  * import { Login } from 'phoenix-mobile-toolbox';
- * 
+ *
  * export default class LoginBodyContainer extends React.Component {
- *    
+ *
  *    onChangeEmail = (text) => console.log(text)
  *    onChangePassword = (text) => console.log(text)
- * 
+ *
  *    render(){
  *      const props = {
  *        bodyTitle: '',
@@ -33,7 +33,7 @@ import colors from '../../styles/colors';
  *        onChangeEmail: this.onChangeEmail,
  *        onChangePassword: this.onChangeEmail,
  *      };
- * 
+ *
  *      return <Login.LoginBody {...props}/>
  *    }
  * }
@@ -158,11 +158,12 @@ class LoginBody extends React.Component {
               onPress={() => this.setState({ passwordHide: !passwordHide })}
             >
               <Icon
-                color={passwordHide ? colors.papinotasBlue : colors.papinotasOrange}
+                color={
+                  passwordHide ? colors.papinotasBlue : colors.papinotasOrange
+                }
                 size={30}
                 name="remove-red-eye"
               />
-
             </TouchableHighlight>
           </View>
           <View

@@ -5,9 +5,14 @@ const Dictionary = {
     warning: 'Aviso',
   },
   general: {
-    tryAgain: 'Intenta denuevo',
+    tryAgain: 'Intenta de nuevo',
     advanced: 'Opciones avanzadas',
     ok: 'Ok',
+  },
+  help: {
+    title: 'Ayuda',
+    call: 'Llámanos',
+    mail: 'Contáctanos',
   },
 };
 

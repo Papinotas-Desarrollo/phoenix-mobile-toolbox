@@ -3,6 +3,7 @@ import * as React from 'react';
 import { TouchableOpacity } from 'react-native';
 import { Appbar, TextInput } from 'react-native-paper';
 import renderer from 'react-test-renderer';
+import wait from 'waait';
 import { ErrorView } from '../';
 
 describe('Snapshot test', () => {
@@ -10,6 +11,8 @@ describe('Snapshot test', () => {
     const props = {
       error: '',
       resetError: jest.fn(),
+      phoneFunction: jest.fn(),
+      emailFunction: jest.fn(),
     };
     const tree = renderer.create(<ErrorView {...props} />).toJSON();
     expect(tree).toMatchSnapshot();
@@ -21,6 +24,8 @@ describe('Functionality test', () => {
     const props = {
       error: '',
       resetError: jest.fn(),
+      phoneFunction: jest.fn(),
+      emailFunction: jest.fn(),
     };
     const wrapper = shallow(<ErrorView {...props} />);
 
@@ -37,11 +42,13 @@ describe('Functionality test', () => {
     const props = {
       error: '',
       resetError: jest.fn(),
+      phoneFunction: jest.fn(),
+      emailFunction: jest.fn(),
     };
     const wrapper = shallow(<ErrorView {...props} />);
     const button = wrapper
       .find(TouchableOpacity)
-      .at(1)
+      .at(3)
       .props();
     expect(wrapper.find(TextInput).length).toBe(0);
     expect(wrapper.state().counter).toBe(0);
@@ -59,5 +66,31 @@ describe('Functionality test', () => {
     button.onPress(); // 11
     expect(wrapper.state().counter).toBe(11);
     expect(wrapper.find(TextInput).length).toBe(1);
+  });
+  it('click phone button calls phoneFunction', async () => {
+    const props = {
+      error: '',
+      resetError: jest.fn(),
+      phoneFunction: jest.fn(),
+      emailFunction: jest.fn(),
+    };
+    const wrapper = shallow(<ErrorView {...props} />);
+    const button = wrapper.find(TouchableOpacity).at(1);
+    button.props().onPress();
+    await wait(1);
+    expect(props.phoneFunction).toHaveBeenCalled();
+  });
+  it('click email button calls emailFunction', async () => {
+    const props = {
+      error: '',
+      resetError: jest.fn(),
+      phoneFunction: jest.fn(),
+      emailFunction: jest.fn(),
+    };
+    const wrapper = shallow(<ErrorView {...props} />);
+    const button = wrapper.find(TouchableOpacity).at(2);
+    button.props().onPress();
+    await wait(2);
+    expect(props.emailFunction).toHaveBeenCalled();
   });
 });

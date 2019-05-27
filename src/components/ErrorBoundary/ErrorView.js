@@ -1,6 +1,14 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Modal, SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import {
+  Modal,
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import { Appbar, TextInput } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Dictionary from '../../conf/dictionary';
@@ -37,6 +45,15 @@ const styles = StyleSheet.create({
     marginTop: 150,
     backgroundColor: colors.papinotasBlue,
     padding: 16,
+    borderRadius: 25,
+    borderWidth: 1,
+    borderColor: colors.white,
+  },
+  helpButton: {
+    marginTop: 75,
+    backgroundColor: colors.papinotasBlue,
+    padding: 16,
+    marginHorizontal: 5,
     borderRadius: 25,
     borderWidth: 1,
     borderColor: colors.white,
@@ -84,6 +101,9 @@ const styles = StyleSheet.create({
   iconRotation: {
     transform: [{ rotate: '45deg' }],
   },
+  helpButtonsContainer: {
+    flexDirection: 'row',
+  },
 });
 
 const retryCounter = 10;
@@ -112,7 +132,8 @@ class ErrorView extends React.PureComponent {
 
   render() {
     const { counter, text, visible } = this.state;
-    const { error, resetError } = this.props;
+    const { error, resetError, phoneFunction, emailFunction } = this.props;
+
     return (
       <React.Fragment>
         <SafeAreaView style={styles.container}>
@@ -134,11 +155,26 @@ class ErrorView extends React.PureComponent {
               />
               <Text style={styles.title}>{Dictionary.errors.errorTitle}</Text>
               <Text style={styles.subtitle}>{Dictionary.errors.errorText}</Text>
-              <TouchableOpacity style={styles.button} onPress={resetError}>
+              <TouchableOpacity style={styles.helpButton} onPress={resetError}>
                 <Text style={styles.buttonText}>
                   {Dictionary.general.tryAgain}
                 </Text>
               </TouchableOpacity>
+              <View style={styles.helpButtonsContainer}>
+                <TouchableOpacity
+                  style={styles.helpButton}
+                  onPress={() => phoneFunction()}
+                >
+                  <Icon size={25} name="call" color={colors.white} />
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.helpButton}
+                  onPress={() => emailFunction()}
+                >
+                  <Icon size={25} name="email" color={colors.white} />
+                </TouchableOpacity>
+              </View>
+
               {this.showError() ? (
                 <Text style={styles.error}>{error.toString()}</Text>
               ) : null}

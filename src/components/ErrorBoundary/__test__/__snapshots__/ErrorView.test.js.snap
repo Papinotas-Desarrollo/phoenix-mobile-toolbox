@@ -283,7 +283,8 @@ Array [
                 "borderColor": "#FFFFFF",
                 "borderRadius": 25,
                 "borderWidth": 1,
-                "marginTop": 150,
+                "marginHorizontal": 5,
+                "marginTop": 75,
                 "opacity": 1,
                 "padding": 16,
               }
@@ -296,8 +297,102 @@ Array [
                 }
               }
             >
-              Intenta denuevo
+              Intenta de nuevo
             </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <View
+              accessible={true}
+              isTVSelectable={true}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "backgroundColor": "#4A90E2",
+                  "borderColor": "#FFFFFF",
+                  "borderRadius": 25,
+                  "borderWidth": 1,
+                  "marginHorizontal": 5,
+                  "marginTop": 75,
+                  "opacity": 1,
+                  "padding": 16,
+                }
+              }
+            >
+              <Text
+                allowFontScaling={false}
+                style={
+                  Array [
+                    Object {
+                      "color": "#FFFFFF",
+                      "fontSize": 25,
+                    },
+                    undefined,
+                    Object {
+                      "fontFamily": "Material Icons",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
+            <View
+              accessible={true}
+              isTVSelectable={true}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "backgroundColor": "#4A90E2",
+                  "borderColor": "#FFFFFF",
+                  "borderRadius": 25,
+                  "borderWidth": 1,
+                  "marginHorizontal": 5,
+                  "marginTop": 75,
+                  "opacity": 1,
+                  "padding": 16,
+                }
+              }
+            >
+              <Text
+                allowFontScaling={false}
+                style={
+                  Array [
+                    Object {
+                      "color": "#FFFFFF",
+                      "fontSize": 25,
+                    },
+                    undefined,
+                    Object {
+                      "fontFamily": "Material Icons",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
           </View>
         </View>
       </View>

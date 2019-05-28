@@ -85,9 +85,6 @@ const styles = StyleSheet.create({
   item: {
     margin: 8,
   },
-  child: {
-    paddingLeft: 64,
-  },
   content: {
     flex: 1,
     justifyContent: 'center',
@@ -106,8 +103,6 @@ class ListAccordion extends React.Component<Props, State> {
   };
 
   handlePress = () => {
-    // this.props.onPress && this.props.onPress();
-
     if (this.props.expanded === undefined) {
       // Only update state of the `expanded` prop was not passed
       // If it was passed, the component will act as a controlled component

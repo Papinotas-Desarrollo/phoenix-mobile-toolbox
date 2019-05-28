@@ -1,10 +1,9 @@
+import Proptypes from 'prop-types';
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import Proptypes from 'prop-types';
-import colors from '../../styles/colors';
 import { List } from 'react-native-paper';
 import Dictionary from '../../conf/dictionary';
-
+import { Accordion } from '../Accordion';
 /**
  *
  * ## Usage
@@ -18,6 +17,8 @@ import Dictionary from '../../conf/dictionary';
  *
  *    render(){
  *      const props = {
+ *        styleAccordion: {},
+ *        styleItem: {},
  *        phoneFunction: () => {},
  *        emailFunction: () => {},
  *      };
@@ -30,42 +31,56 @@ import Dictionary from '../../conf/dictionary';
  */
 
 const styles = StyleSheet.create({
-  borderStyle: {
-    borderBottomWidth: 1,
-    borderBottomColor: colors.lineGray,
-  },
+  icon: {
+    marginLeft: 0,
+  }
 });
 
-const HelpAccordion = ({ phoneFunction, emailFunction }) => (
-  <List.Accordion
-    style={styles.borderStyle}
-    title={Dictionary.help.title}
-    left={() => <List.Icon icon="help" />}
-  >
-    <List.Item
-      style={styles.borderStyle}
-      title={Dictionary.help.call}
-      onPress={() => {
-        phoneFunction();
-      }}
-      right={() => <List.Icon icon="phone" />}
-      rippleColor={colors.papinotasOrange}
-    />
-    <List.Item
-      style={styles.borderStyle}
-      title={Dictionary.help.mail}
-      onPress={() => {
-        emailFunction();
-      }}
-      right={() => <List.Icon icon="mail" />}
-      rippleColor={colors.papinotasOrange}
-    />
-  </List.Accordion>
-);
+const HelpAccordion = ({
+  styleAccordion,
+  styleItem,
+  phoneFunction,
+  emailFunction,
+  theme,
+}) => (
+    <Accordion
+      theme={theme}
+      style={styleAccordion}
+      title={Dictionary.help.title}
+      left={() => <List.Icon icon="help" style={styles.icon} />}
+    >
+      <List.Item
+        theme={theme}
+        style={styleItem}
+        title={Dictionary.help.call}
+        onPress={() => {
+          phoneFunction();
+        }}
+        right={() => <List.Icon icon="phone" />}
+      />
+      <List.Item
+        style={styleItem}
+        title={Dictionary.help.mail}
+        onPress={() => {
+          emailFunction();
+        }}
+        right={() => <List.Icon icon="mail" />}
+      />
+    </Accordion>
+  );
 
 HelpAccordion.propTypes = {
+  styleAccordion: Proptypes.instanceOf(Object),
+  styleItem: Proptypes.instanceOf(Object),
   phoneFunction: Proptypes.func.isRequired,
   emailFunction: Proptypes.func.isRequired,
+  theme: Proptypes.instanceOf(Object),
+};
+
+HelpAccordion.defaultProps = {
+  styleAccordion: {},
+  styleItem: {},
+  theme: {},
 };
 
 export default HelpAccordion;

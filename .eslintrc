@@ -26,6 +26,13 @@
     "import/first": "off",
 
     "react-native/no-unused-styles": "error",
-    "react-native/split-platform-components": "off"
+    "react-native/split-platform-components": "off",
+
+    "react/jsx-filename-extension": "off",
+    "import/prefer-default-export": "off",
+    "no-alert": "off",
+    "react/forbid-prop-types": "off",
+    "react/no-array-index-key": "off",
+    "react/no-did-mount-set-state": "off"
   }
 }

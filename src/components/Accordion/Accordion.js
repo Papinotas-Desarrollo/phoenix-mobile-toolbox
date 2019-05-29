@@ -5,6 +5,7 @@ import * as React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Text, TouchableRipple, withTheme } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import colors from '../../styles/colors';
 
 type Theme = {
   dark: boolean,
@@ -55,11 +56,9 @@ type Props = {|
      * Content of the section.
      */
     children: React.Node,
-      /**
-       * @optional
-       */
       theme: Theme,
         style ?: any,
+        iconColor: string,
 |};
 
 type State = {
@@ -100,6 +99,7 @@ class ListAccordion extends React.Component<Props, State> {
 
   state = {
     expanded: this.props.expanded || false,
+    iconColor: this.props.iconColor || colors.black,
   };
 
   handlePress = () => {
@@ -114,6 +114,7 @@ class ListAccordion extends React.Component<Props, State> {
 
   render() {
     const { left, title, description, children, theme, style } = this.props;
+    const { iconColor } = this.state;
     const titleColor = color(theme.colors.text)
       .alpha(0.87)
       .rgb()
@@ -170,6 +171,7 @@ class ListAccordion extends React.Component<Props, State> {
             </View>
             <View style={[styles.item, description && styles.multiline, styles.icon]}>
               <Icon
+                color={iconColor}
                 name={expanded ? 'keyboard-arrow-up' : 'keyboard-arrow-down'}
                 size={24}
               />

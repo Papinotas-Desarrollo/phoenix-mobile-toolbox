@@ -10,6 +10,7 @@ export interface AccordionProps {
   left?: (props: { color: string }) => React.ReactNode;
   style?: StyleProp<ViewStyle>;
   theme?: ThemeShape;
+  iconColor?: string;
 }
 
 export declare class Accordion extends React.Component<AccordionProps> {}

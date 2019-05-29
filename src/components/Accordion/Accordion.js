@@ -58,7 +58,7 @@ type Props = {|
     children: React.Node,
       theme: Theme,
         style ?: any,
-        color: string,
+        iconColor: string,
 |};
 
 type State = {

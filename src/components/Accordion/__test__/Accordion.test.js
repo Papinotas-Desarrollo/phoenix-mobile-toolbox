@@ -2,7 +2,9 @@ import React from 'react';
 import { Text, TouchableOpacity } from 'react-native';
 import { TouchableRipple } from 'react-native-paper';
 import { fireEvent, render } from 'react-native-testing-library';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import { Accordion } from '../';
+import colors from '../../../styles/colors';
 
 const children = [
   <TouchableOpacity key="1" />,
@@ -40,5 +42,33 @@ describe('Render tests', () => {
     fireEvent.press(touchable);
 
     expect(queryAllByType(TouchableOpacity).length).toBe(4);
+  });
+  it('renders with black color', async () => {
+    const props = {
+      left: jest.fn(),
+      title: 'Test',
+      description: <Text />,
+      children,
+      theme: {},
+      style: {},
+    };
+    const { getByType } = render(<Accordion {...props} />);
+    const iconElement = getByType(Icon);
+
+    expect(iconElement.props.color).toBe(colors.black);
+  });
+  it('renders with papinotasBlue', async () => {
+    const props = {
+      left: jest.fn(),
+      title: 'Test',
+      description: <Text />,
+      children,
+      theme: {},
+      style: {},
+      iconColor: colors.papinotasBlue,
+    };
+    const { getByType } = render(<Accordion {...props} />);
+    const iconElement = getByType(Icon);
+    expect(iconElement.props.color).toBe(colors.papinotasBlue);
   });
 });

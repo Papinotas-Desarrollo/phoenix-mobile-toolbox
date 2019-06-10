@@ -14,6 +14,20 @@ const Dictionary = {
     call: 'Llámanos',
     mail: 'Contáctanos',
   },
+  months: [
+    'Enero',
+    'Febrero',
+    'Marzo',
+    'Abril',
+    'Mayor',
+    'Junio',
+    'Julio',
+    'Agosto',
+    'Septiembre',
+    'Octubre',
+    'Noviembre',
+    'Diciembre',
+  ],
 };
 
 export default Dictionary;

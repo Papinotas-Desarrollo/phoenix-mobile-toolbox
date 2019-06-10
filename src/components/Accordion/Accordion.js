@@ -2,8 +2,8 @@
 
 import color from 'color';
 import * as React from 'react';
-import { StyleSheet, View } from 'react-native';
-import { Text, TouchableRipple, withTheme } from 'react-native-paper';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
+import { Text, withTheme } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import colors from '../../styles/colors';
 
@@ -113,12 +113,8 @@ class ListAccordion extends React.Component<Props, State> {
   };
 
   render() {
-    const { left, title, description, children, theme, style } = this.props;
+    const { left, title, description, children, theme, style, onPress } = this.props;
     const { iconColor } = this.state;
-    const titleColor = color(theme.colors.text)
-      .alpha(0.87)
-      .rgb()
-      .string();
     const descriptionColor = color(theme.colors.text)
       .alpha(0.54)
       .rgb()
@@ -130,9 +126,9 @@ class ListAccordion extends React.Component<Props, State> {
         : this.state.expanded;
     return (
       <View>
-        <TouchableRipple
+        <TouchableOpacity
           style={[styles.container, style]}
-          onPress={this.handlePress}
+          onPress={onPress || this.handlePress}
           accessibilityTraits="button"
           accessibilityComponentType="button"
           accessibilityRole="button"
@@ -144,17 +140,7 @@ class ListAccordion extends React.Component<Props, State> {
               })
               : null}
             <View style={[styles.item, styles.content]}>
-              <Text
-                numberOfLines={1}
-                style={[
-                  styles.title,
-                  {
-                    color: expanded ? theme.colors.primary : titleColor,
-                  },
-                ]}
-              >
-                {title}
-              </Text>
+              {title}
               {description && (
                 <Text
                   numberOfLines={2}
@@ -177,7 +163,7 @@ class ListAccordion extends React.Component<Props, State> {
               />
             </View>
           </View>
-        </TouchableRipple>
+        </TouchableOpacity>
         {expanded
           ? children
           : null}

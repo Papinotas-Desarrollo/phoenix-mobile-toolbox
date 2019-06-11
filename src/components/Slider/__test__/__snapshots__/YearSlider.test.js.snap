@@ -37,13 +37,13 @@ exports[`Snapshot test With props snapshot 1`] = `
   <RCTScrollView
     data={
       Array [
-        "2018",
-        "2019",
-        "2020",
+        2018,
+        2019,
+        2020,
       ]
     }
     disableVirtualization={false}
-    extraData="2020"
+    extraData={2020}
     getItem={[Function]}
     getItemCount={[Function]}
     horizontal={true}

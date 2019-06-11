@@ -29,7 +29,7 @@ exports[`Snapshot test With props snapshot 1`] = `
       ]
     }
   >
-    item1
+    0
   </Text>
 </View>
 `;

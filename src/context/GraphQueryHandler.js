@@ -14,7 +14,7 @@ export class GraphQueryHandler extends PureComponent {
   };
 
   componentDidMount() {
-    const availableYears = this.getYearsRange('2018').reverse();
+    const availableYears = this.getYearsRange().reverse();
     this.setState({ availableYears }, () => this.changeYear(availableYears[0]));
   }
 

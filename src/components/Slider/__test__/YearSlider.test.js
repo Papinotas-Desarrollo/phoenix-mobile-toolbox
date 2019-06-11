@@ -8,10 +8,10 @@ import YearSlider from '../YearSlider';
 describe('Snapshot test', () => {
   it('With props snapshot', () => {
     const props = {
-      data: ['2018', '2019', '2020'],
-      selected: '2020',
+      data: [2018, 2019, 2020],
+      selected: 2020,
       onPressSelection: jest.fn(),
-      refresh: jest.fn(),
+      refresh: null,
     };
     const tree = renderer.create(<YearSlider {...props} />).toJSON();
     expect(tree).toMatchSnapshot();
@@ -28,8 +28,8 @@ describe('Proptype check', () => {
 describe('Functionality', () => {
   it('Three Chip children should be render', () => {
     const props = {
-      data: ['2018', '2019', '2020'],
-      selected: '',
+      data: [2018, 2019, 2020],
+      selected: 0,
       onPressSelection: jest.fn(),
       refresh: null,
     };
@@ -42,8 +42,8 @@ describe('Functionality', () => {
       <TouchableOpacity testID="refreshButton" onPress={buttonCallback} />
     );
     const props = {
-      data: ['2018', '2019', '2020'],
-      selected: '',
+      data: [2018, 2019, 2020],
+      selected: 0,
       onPressSelection: jest.fn(),
       refresh: refreshButton,
     };

@@ -19,7 +19,7 @@ const Dictionary = {
     'Febrero',
     'Marzo',
     'Abril',
-    'Mayor',
+    'Mayo',
     'Junio',
     'Julio',
     'Agosto',

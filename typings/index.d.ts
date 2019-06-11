@@ -3,6 +3,8 @@ import { Accordion } from './components/Accordion';
 import { ErrorBoundaryWrapper } from './components/ErrorBoundary';
 import { HelpAccordion } from './components/Help';
 import * as Login from './components/Login';
+import { YearSlider } from './components/Slider';
 
-export { colors, Login, ErrorBoundaryWrapper, HelpAccordion, Accordion };
+export * from './context';
+export { colors, Login, ErrorBoundaryWrapper, HelpAccordion, Accordion, YearSlider };
 

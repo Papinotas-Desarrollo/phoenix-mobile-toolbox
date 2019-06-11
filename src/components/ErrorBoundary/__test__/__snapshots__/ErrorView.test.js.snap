@@ -3,6 +3,7 @@
 exports[`Snapshot test With props snapshot 1`] = `
 Array [
   <RCTSafeAreaView
+    emulateUnlessSupported={true}
     style={
       Object {
         "backgroundColor": "#4A90E2",
@@ -12,6 +13,7 @@ Array [
     }
   >
     <RCTSafeAreaView
+      emulateUnlessSupported={true}
       style={
         Array [
           Object {

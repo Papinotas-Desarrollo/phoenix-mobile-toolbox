@@ -24,6 +24,7 @@ const styles = StyleSheet.create({
 });
 
 interface ChipProps {
+  id?: string;
   name: string;
   selected: boolean;
   onPressSelection: Function;
@@ -42,9 +43,14 @@ const Chip: FunctionComponent<ChipProps> = ({ id, name, selected, onPressSelecti
 );
 
 Chip.propTypes = {
-  name: PropTypes.number.isRequired,
+  id: PropTypes.string,
+  name: PropTypes.string.isRequired,
   selected: PropTypes.bool.isRequired,
   onPressSelection: PropTypes.func.isRequired,
+};
+
+Chip.defaultProps = {
+  id: null,
 };
 
 export default Chip;

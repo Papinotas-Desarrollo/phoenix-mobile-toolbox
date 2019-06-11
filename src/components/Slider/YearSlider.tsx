@@ -22,7 +22,7 @@ interface YearSliderProps {
   data: Array<string>;
   selected: string;
   onPressSelection: Function;
-  refresh: React.ReactNode;
+  refresh?: React.ReactNode;
 }
 
 const YearSlider: React.FunctionComponent<YearSliderProps> = ({
@@ -53,13 +53,13 @@ const YearSlider: React.FunctionComponent<YearSliderProps> = ({
 
 YearSlider.propTypes = {
   data: PropTypes.array.isRequired,
-  selected: PropTypes.number.isRequired,
+  selected: PropTypes.string.isRequired,
   onPressSelection: PropTypes.func.isRequired,
   refresh: PropTypes.any,
 };
 
 YearSlider.defaultProps = {
-  refresh: {},
+  refresh: [],
 };
 
 export default YearSlider;

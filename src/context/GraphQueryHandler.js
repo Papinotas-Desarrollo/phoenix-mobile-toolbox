@@ -11,7 +11,7 @@ export class GraphQueryHandler extends PureComponent {
       lastDay: new Date(new Date().getFullYear().toString(), '11', '31').toISOString(),
     },
     availableYears: [],
-  }
+  };
 
   componentDidMount() {
     const availableYears = this.getYearsRange('2018').reverse();
@@ -24,12 +24,11 @@ export class GraphQueryHandler extends PureComponent {
     const yearsBetween = [];
     for (let i = startingYear; i <= currentYear; i++) yearsBetween.push(i);
     return yearsBetween;
-  }
+  };
 
-  orderedListByMonthDesc = (items) => {
+  orderedListByMonthDesc = items => {
     // Groups will be saved as { 2: Array(3), 3: Array(8) }
-    // | 2: is the month (March) | Array(3): are the messages quant
-    // console.log(JSON.stringify(items))
+    // | 2: is the month (March) | Array(3): are the messages quantity
     const grouped = items.reduce((group, item) => {
       const itemMonth = item.to_be_sent_at.split('-')[1].replace(/^0+/, '');
       // eslint-disable-next-line no-param-reassign
@@ -38,7 +37,7 @@ export class GraphQueryHandler extends PureComponent {
       return group;
     }, {});
     return grouped;
-  }
+  };
 
   changeYear = year =>
     this.setState({

@@ -12,6 +12,7 @@ exports[`Snapshot test With props snapshot 1`] = `
     }
   >
     <RCTSafeAreaView
+      emulateUnlessSupported={true}
       style={
         Object {
           "alignItems": "center",
@@ -84,6 +85,7 @@ exports[`Snapshot test With props snapshot 1`] = `
         onChangeText={[Function]}
         onFocus={[Function]}
         placeholder="firstInputPlaceholder"
+        rejectResponderTermination={true}
         style={
           Object {
             "fontSize": 16,
@@ -125,6 +127,7 @@ exports[`Snapshot test With props snapshot 1`] = `
           onChangeText={[Function]}
           onFocus={[Function]}
           placeholder="secondInputPlaceholder"
+          rejectResponderTermination={true}
           secureTextEntry={true}
           style={
             Object {

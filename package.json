@@ -50,6 +50,7 @@
     "@babel/core": "^7.1.2",
     "@babel/preset-typescript": "^7.3.3",
     "@babel/runtime": "^7.1.2",
+    "@types/jest": "^24.0.13",
     "@types/react": "^16.8.19",
     "@types/react-native": "^0.57.60",
     "babel-cli": "^6.26.0",
@@ -72,23 +73,25 @@
     "jest": "^23.6.0",
     "jest-enzyme": "^7.0.1",
     "jest-file-snapshot": "^0.3.2",
+    "jest-watch-typeahead": "^0.3.1",
     "jsdom": "^13.2.0",
     "metro-react-native-babel-preset": "^0.49.0",
     "prettier": "^1.14.3",
     "react": "16.6.0-alpha.8af6728",
     "react-dom": "16.6.0-alpha.8af6728",
-    "react-native": "~0.57.4",
+    "react-native": "^0.59.9",
     "react-native-keyboard-aware-scroll-view": "^0.8.0",
     "react-native-testing-library": "^1.7.0",
+    "react-native-typescript-transformer": "^1.2.12",
     "react-test-renderer": "16.6.0-alpha.8af6728",
     "release-it": "^7.6.2",
     "rimraf": "^2.6.2",
+    "ts-jest": "^24.0.2",
     "typescript": "^3.5.1",
     "waait": "^1.0.4"
   },
   "peerDependencies": {
-    "react": "*",
-    "react-native": "*"
+    "react": "*"
   },
   "jest": {
     "automock": false,
@@ -101,6 +104,10 @@
     "transform": {
       "^.+\\.(js|jsx|mjs)$": "<rootDir>/node_modules/babel-jest"
     },
+    "watchPlugins": [
+      "jest-watch-typeahead/filename",
+      "jest-watch-typeahead/testname"
+    ],
     "moduleFileExtensions": [
       "web.js",
       "js",
@@ -108,14 +115,15 @@
       "web.jsx",
       "jsx",
       "node",
-      "mjs"
+      "mjs",
+      "tsx",
+      "ts"
     ],
     "modulePaths": [
       "<rootDir>/node_modules"
     ],
     "coveragePathIgnorePatterns": [
-      "/node_modules/",
-      "/app/conf"
+      "/node_modules/"
     ]
   }
 }

@@ -19,8 +19,8 @@ const styles = StyleSheet.create({
 });
 
 interface YearSliderProps {
-  data: Array<string>;
-  selected: string;
+  data: ReadonlyArray<number>;
+  selected: number;
   onPressSelection: Function;
   refresh?: React.ReactNode;
 }
@@ -33,7 +33,7 @@ const YearSlider: React.FunctionComponent<YearSliderProps> = ({
 }) => (
     <View style={styles.container}>
       <Icon style={styles.icon} size={20} name="school" color={colors.white} />
-      <FlatList
+      <FlatList<number>
         horizontal
         showsHorizontalScrollIndicator={false}
         data={data}
@@ -43,7 +43,7 @@ const YearSlider: React.FunctionComponent<YearSliderProps> = ({
           <Chip
             onPressSelection={onPressSelection}
             selected={selected === item}
-            name={item}
+            value={item}
           />
         )}
       />
@@ -53,7 +53,7 @@ const YearSlider: React.FunctionComponent<YearSliderProps> = ({
 
 YearSlider.propTypes = {
   data: PropTypes.array.isRequired,
-  selected: PropTypes.string.isRequired,
+  selected: PropTypes.number.isRequired,
   onPressSelection: PropTypes.func.isRequired,
   refresh: PropTypes.any,
 };

@@ -24,27 +24,27 @@ const styles = StyleSheet.create({
 });
 
 interface ChipProps {
-  id?: string;
-  name: string;
+  id?: number;
+  value: number;
   selected: boolean;
   onPressSelection: Function;
 }
 
-const Chip: FunctionComponent<ChipProps> = ({ id, name, selected, onPressSelection }) => (
+const Chip: FunctionComponent<ChipProps> = ({ id, value, selected, onPressSelection }) => (
   <TouchableOpacity
-    onPress={() => onPressSelection(id || name)}
+    onPress={() => onPressSelection(id || value)}
     style={[styles.containerChip, selected ? styles.selectedChip : null]}
     disabled={selected}
   >
     <Text style={[styles.textProps, selected ? styles.selectedTextChip : null]}>
-      {name}
+      {value}
     </Text>
   </TouchableOpacity>
 );
 
 Chip.propTypes = {
-  id: PropTypes.string,
-  name: PropTypes.string.isRequired,
+  id: PropTypes.number,
+  value: PropTypes.number.isRequired,
   selected: PropTypes.bool.isRequired,
   onPressSelection: PropTypes.func.isRequired,
 };

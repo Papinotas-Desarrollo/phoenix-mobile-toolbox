@@ -7,7 +7,7 @@ import Chip from '../Chip';
 describe('Snapshot test', () => {
   it('With props snapshot', () => {
     const props = {
-      name: 'item1',
+      value: 0,
       selected: false,
       onPressSelection: jest.fn(),
     };
@@ -18,7 +18,7 @@ describe('Snapshot test', () => {
 describe('Proptype check', () => {
   it('Callback proptypes defined', () => {
     expect(Chip.propTypes.id).toBeDefined();
-    expect(Chip.propTypes.name).toBeDefined();
+    expect(Chip.propTypes.value).toBeDefined();
     expect(Chip.propTypes.selected).toBeDefined();
     expect(Chip.propTypes.onPressSelection).toBeDefined();
   });
@@ -26,7 +26,7 @@ describe('Proptype check', () => {
 describe('Functionality', () => {
   it('onPressSelection function to be called', () => {
     const props = {
-      name: 'item1',
+      value: 0,
       selected: false,
       onPressSelection: jest.fn(),
     };

@@ -21,7 +21,6 @@ describe('Functionality', () => {
     expect(years[years.length - 1].toString()).toBe(new Date().getFullYear().toString());
   });
   it('orderedListByMonthDesc returns bundles by month', () => {
-    // const { months } = Dictionary;
     const wrapper = shallow(
       <GraphQueryHandler>
         <React.Fragment />
@@ -32,7 +31,6 @@ describe('Functionality', () => {
     expect(months[Object.keys(months)[0]]).toBeInstanceOf(Array);
   });
   it('changeYear change current year on state', () => {
-    // const { months } = Dictionary;
     const wrapper = shallow(
       <GraphQueryHandler>
         <React.Fragment />

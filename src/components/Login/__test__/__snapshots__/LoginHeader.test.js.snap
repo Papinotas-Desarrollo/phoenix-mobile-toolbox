@@ -18,7 +18,7 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "class",
     "props": Object {
-      "children": <Component />,
+      "children": <Image />,
       "style": Object {
         "alignItems": "center",
         "backgroundColor": "#4A90E2",
@@ -50,7 +50,7 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "class",
       "props": Object {
-        "children": <Component />,
+        "children": <Image />,
         "style": Object {
           "alignItems": "center",
           "backgroundColor": "#4A90E2",
@@ -125,7 +125,7 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "class",
     "props": Object {
-      "children": <Component
+      "children": <Image
         source={
           Object {
             "src": "../assets/papinotascolegio.png",
@@ -165,7 +165,7 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "class",
       "props": Object {
-        "children": <Component
+        "children": <Image
           source={
             Object {
               "src": "../assets/papinotascolegio.png",

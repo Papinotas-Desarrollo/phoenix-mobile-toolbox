@@ -1,6 +1,6 @@
 import Proptypes from 'prop-types';
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Text } from 'react-native';
 import { List } from 'react-native-paper';
 import Dictionary from '../../conf/dictionary';
 import { Accordion } from '../Accordion';
@@ -46,13 +46,13 @@ const HelpAccordion = ({
     <Accordion
       theme={theme}
       style={styleAccordion}
-      title={Dictionary.help.title}
+      title={<Text>{Dictionary.help.title}</Text>}
       left={() => <List.Icon icon="help" style={styles.icon} />}
     >
       <List.Item
         theme={theme}
         style={styleItem}
-        title={Dictionary.help.call}
+        title={<Text>{Dictionary.help.call}</Text>}
         onPress={() => {
           phoneFunction();
         }}

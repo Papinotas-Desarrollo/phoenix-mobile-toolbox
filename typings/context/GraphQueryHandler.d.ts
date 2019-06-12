@@ -1,18 +1,28 @@
 import * as React from 'react';
 
-type Provider<T> = React.ComponentType<{
-  value: T;
-  children?: ReactNode;
-}>;
+declare module React {
+  type Provider<T> = React.ComponentType<{
+    value: T;
+    children?: ReactNode;
+  }>;
+  
+  type Consumer<T> = React.ComponentType<{
+    children: (value: T) => ReactNode;
+    unstable_observedBits?: number;
+  }>
 
-type Consumer<T> = React.ComponentType<{
-  children: (value: T) => ReactNode;
-}>
+  interface Context<T> {
+    Provider: Provider<T>;
+    Consumer: Consumer<T>;
+    displayName?: string;
+  }
 
-interface GraphQueryHandlerContextProps<T> {
-  Provider: Provider<T>;
-  Consumer: Consumer<T>;
+  function createContext<T>(
+    defaultValue: T,
+    calculateChangedBits?: (prev: T, next: T) => number
+  ): Context<T>;
 }
 
-export const GraphQueryHandlerContext = React.createContext<GraphQueryHandlerContextProps>({});
+
+export const GraphQueryHandlerContext = React.createContext();
 export declare class GraphQueryHandler extends React.Component {}

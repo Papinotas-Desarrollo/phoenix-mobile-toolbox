@@ -30,7 +30,7 @@ export class GraphQueryHandler extends PureComponent {
     // Groups will be saved as { 2: Array(3), 3: Array(8) }
     // | 2: is the month (March) | Array(3): are the messages quantity
     const grouped = items.reduce((group, item) => {
-      const itemMonth = item.to_be_sent_at.split('-')[1].replace(/^0+/, '');
+      const itemMonth = item.created_at.split('-')[1].replace(/^0+/, '');
       // eslint-disable-next-line no-param-reassign
       group[(itemMonth - 1).toString()] = group[itemMonth - 1] || [];
       group[(itemMonth - 1).toString()].push(item);

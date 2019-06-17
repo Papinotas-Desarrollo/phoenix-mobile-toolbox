@@ -23,6 +23,11 @@ const colors = {
   blueFilter: '#7dafef',
   backgroundGrey: '#3690E9',
   fadedGray: '#00000080',
+  slider: {
+    background: '#75a7e2',
+    active: '#FFFFFF',
+    inactive: '#A4C5EB',
+  },
 };
 
 export default colors;

@@ -58,6 +58,7 @@ Array [
       onChangeText={[Function]}
       onFocus={[Function]}
       placeholder="firstInputPlaceholder"
+      rejectResponderTermination={true}
       style={
         Object {
           "fontSize": 16,
@@ -99,6 +100,7 @@ Array [
         onChangeText={[Function]}
         onFocus={[Function]}
         placeholder="secondInputPlaceholder"
+        rejectResponderTermination={true}
         secureTextEntry={true}
         style={
           Object {

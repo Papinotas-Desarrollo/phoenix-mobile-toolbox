@@ -32,7 +32,7 @@ exports[`Snapshot test With props snapshot 1`] = `
       ]
     }
   >
-    
+    
   </Text>
   <RCTScrollView
     data={

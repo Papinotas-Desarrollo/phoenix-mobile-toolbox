@@ -4,7 +4,8 @@ import { ErrorBoundaryWrapper } from './components/ErrorBoundary';
 import { HelpAccordion } from './components/Help';
 import * as Login from './components/Login';
 import { YearSlider } from './components/Slider';
+import * as SideMenu from './components/SideMenu';
 
 export * from './context';
-export { colors, Login, ErrorBoundaryWrapper, HelpAccordion, Accordion, YearSlider };
+export { colors, Login, ErrorBoundaryWrapper, HelpAccordion, Accordion, YearSlider, SideMenu };
 

@@ -2,19 +2,18 @@ import * as React from 'react';
 import {ImageSourcePropType} from 'react-native';
 
 export interface SideMenuHeaderProps{
-    source?:ImageSourcePropType;
-    headerStyle?:any;
-    closeMenu:()=>any;
-    headerTitle?:string;
-    headerSubtitle?:string;
+    children:React.ReactNodeArray;
+    headerStyle?: any;
 }
 
-export interface SideMenuFooterProps{
-    footerStyle?:object;
-    callback?:()=>any;
+export interface SideMenuBodyProps{
+    children:React.ReactNodeArray;
+    bodyStyle?: any;
 }
 
-
-export declare class SideMenuScreen extends React.Component<SideMenuHeaderProps>{}
+export interface SideMenuScreenProps{
+    containerStyle?: any;
+}
+export declare class SideMenuScreen extends React.Component<SideMenuBodyProps,SideMenuHeaderProps,SideMenuScreenProps>{}
 export declare class SideMenuHeader extends React.Component<SideMenuHeaderProps>{}
-export declare class SideMenuFooter extends React.Component<SideMenuFooterProps>{}
+export declare class SideMenuBody extends React.Component<SideMenuBodyProps>{}

@@ -1,57 +1,63 @@
 /* @flow */
 import React from 'react';
-import { SideMenuHeader, SideMenuBody, SideMenuFooter } from '.';
+import { SideMenuHeader, SideMenuBody } from '.';
 import Proptypes from 'prop-types';
-import { SafeAreaView } from 'react-native';
+import { SafeAreaView, ScrollView } from 'react-native';
 
+/**
+ *
+ * ## Usage
+ * ```js
+ *
+ * import React from 'react';
+ * import { SideMenu } from 'phoenix-mobile-toolbox';
+ *
+ * export default class SideMenuScreen extends React.Component {
+ *
+ *
+ *    render(){
+ *      const props = {
+ *        containerStyle: {},
+ *        buttons: [],
+ *        header: [],
+ *        headerStyle: {},
+ *        bodyStyle: {},
+ *      };
+ *
+ *      return <SideMenu.SideMenuScreen {...props}/>
+ *    }
+ * }
+ *
+ * ```
+ */
 export default class SideMenuScreen extends React.Component {
     render() {
-        const { containerStyle, source, headerStyle, closeMenu, headerTitle, headerSubtitle, headerDescription } = this.props;
-
+        const {
+            containerStyle,
+            buttons,
+            header,
+            headerStyle,
+            bodyStyle,
+        } = this.props;
         return (
-            <SafeAreaView style={containerStyle}>
-                <SideMenuHeader
-                    source={source}
-                    headerStyle={headerStyle}
-                    closeMenu={closeMenu}
-                    headerTitle={headerTitle}
-                    headerSubtitle={headerSubtitle}
-                    headerDescription={headerDescription} />
-                <SideMenuFooter
-
-                />
-
+            <SafeAreaView testID="rootView" style={containerStyle}>
+                <SideMenuHeader headerStyle={headerStyle}>{header}</SideMenuHeader>
+                <ScrollView style={{ flex: 1 }}>
+                    <SideMenuBody bodyStyle={bodyStyle}>{buttons}</SideMenuBody>
+                </ScrollView>
             </SafeAreaView>
         );
     }
 }
 
 SideMenuScreen.propTypes = {
-    source: Proptypes.number,
-    headerStyle: Proptypes.object,
     containerStyle: Proptypes.object,
-    bodyTitle: Proptypes.string,
-    bodySubtitle: Proptypes.string,
-    beforeInputText: Proptypes.string,
-    firstInputPlaceholder: Proptypes.string,
-    secondInputPlaceholder: Proptypes.string,
-    onChangeEmail: Proptypes.func.isRequired,
-    onChangePassword: Proptypes.func.isRequired,
     buttons: Proptypes.array,
-    headerTitle: Proptypes.string.isRequired,
-    headerSubtitle: Proptypes.string,
-    headerDescription: Proptypes.string,
+    header: Proptypes.array,
 };
 
 SideMenuScreen.default = {
-    headerStyle: {},
     containerStyle: {},
-    bodyTitle: '',
-    bodySubtitle: '',
-    beforeInputText: '',
-    firstInputPlaceholder: '',
-    secondInputText: '',
-    secondInputPlaceholder: '',
     buttons: [],
-    headerTitle: '',
+    header: [],
 };

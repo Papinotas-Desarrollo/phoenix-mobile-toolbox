@@ -32,7 +32,7 @@ const YearSlider: React.FunctionComponent<YearSliderProps> = ({
   refresh,
 }) => (
     <View style={styles.container}>
-      <Icon style={styles.icon} size={20} name="school" color={colors.white} />
+      <Icon style={styles.icon} size={20} name="access-time" color={colors.white} />
       <FlatList<number>
         horizontal
         showsHorizontalScrollIndicator={false}

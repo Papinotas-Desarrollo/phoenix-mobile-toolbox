@@ -61,7 +61,7 @@ export default class SideMenuScreen extends React.Component<SideMenuScreenProps>
 SideMenuScreen.propTypes = {
   containerStyle: Proptypes.instanceOf(Object),
   buttons: Proptypes.array,
-  header: Proptypes.instanceOf(Object),
+  header: Proptypes.array,
   headerStyle:Proptypes.instanceOf(Object),
   bodyStyle:Proptypes.instanceOf(Object),
 };

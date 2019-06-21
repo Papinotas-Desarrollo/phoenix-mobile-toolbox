@@ -62,4 +62,5 @@ SideMenuHeader.propTypes = {
 
 SideMenuHeader.default = {
   children: [],
+  headerStyle:{},
 };

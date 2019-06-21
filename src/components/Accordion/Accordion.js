@@ -68,6 +68,7 @@ type State = {
 const styles = StyleSheet.create({
   container: {
     padding: 8,
+    borderBottomColor: colors.lineGray,
   },
   row: {
     flexDirection: 'row',
@@ -127,7 +128,7 @@ class ListAccordion extends React.Component<Props, State> {
     return (
       <View>
         <TouchableOpacity
-          style={[styles.container, style]}
+          style={[styles.container, style, { borderBottomWidth: expanded ? 0 : 1, }]}
           onPress={onPress || this.handlePress}
           accessibilityTraits="button"
           accessibilityComponentType="button"

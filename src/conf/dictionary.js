@@ -28,6 +28,7 @@ const Dictionary = {
     'Noviembre',
     'Diciembre',
   ],
+  noChildren: 'No children props passed',
 };
 
 export default Dictionary;

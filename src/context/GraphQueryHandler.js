@@ -29,7 +29,6 @@ export class GraphQueryHandler extends PureComponent {
   orderedListByMonthDesc = items => {
     // Groups will be saved as { 2: Array(3), 3: Array(8) }
     // | 2: is the month (March) | Array(3): are the messages quantity
-    console.log('ITEMS',items);
     const grouped = items.reduce((group, item) => {
       const itemMonth = item.created_at.split('-')[1].replace(/^0+/, '');
       // eslint-disable-next-line no-param-reassign

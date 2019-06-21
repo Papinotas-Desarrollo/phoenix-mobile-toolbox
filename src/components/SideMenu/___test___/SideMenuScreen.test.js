@@ -24,7 +24,7 @@ describe('Render tests', () => {
       headerStyle: {},
       bodyStyle: {},
     };
-    const { getByTestId, debug } = render(<SideMenuScreen {...props} />);
+    const { getByTestId } = render(<SideMenuScreen {...props} />);
 
     const view = getByTestId('rootView');
     expect(view.children.length).toBe(1);
@@ -37,8 +37,7 @@ describe('Render tests', () => {
       headerStyle: {},
       bodyStyle: {},
     };
-    const { getByTestId, debug } = render(<SideMenuScreen {...props} />);
-    debug('test');
+    const { getByTestId } = render(<SideMenuScreen {...props} />);
 
     const view = getByTestId('rootView');
     expect(view.children.length).toBe(1);

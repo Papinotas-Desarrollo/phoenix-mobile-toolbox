@@ -61,6 +61,7 @@ SideMenuBody.propTypes = {
 
 SideMenuBody.defaultProps = {
   children: [],
+  bodyStyle:{},
 };
 
 export default SideMenuBody;

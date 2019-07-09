@@ -15,14 +15,14 @@ export class GraphQueryHandler extends PureComponent {
 
   componentDidMount() {
     const availableYears = this.getYearsRange().reverse();
-    this.setState({ availableYears }, () => this.changeYear(availableYears[0]));
+    this.setState({ availableYears }, () => this.changeYear(availableYears[1]));
   }
 
   getYearsRange = (startDate: string = null) => {
     const startingYear = new Date(startDate || '01 January 2018').getFullYear();
-    const currentYear = new Date().getFullYear();
+    const maxYear = new Date().getFullYear() + 1;
     const yearsBetween = [];
-    for (let i = startingYear; i <= currentYear; i++) yearsBetween.push(i);
+    for (let i = startingYear; i <= maxYear; i++) yearsBetween.push(i);
     return yearsBetween;
   };
 

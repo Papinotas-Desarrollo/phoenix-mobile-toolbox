@@ -25,12 +25,29 @@ export class GraphQueryHandler extends PureComponent {
     for (let i = startingYear; i <= currentYear; i++) yearsBetween.push(i);
     return yearsBetween;
   };
+  /**
+   * Returns an ordered object by month (0-11) where each month is an array with objects.
+   * @function orderedListByMonthDesc
+   * @param {Array} items Array of objects
+   * @param {string} groupByProperty Property that must be parseable to date ISOString
+   * @returns {object}
+   */
+  orderedListByMonthDesc = (items: Array = [], groupByProperty: string = 'created_at') => {
+    if (items && items.length > 0) {
+      if (!items[0][groupByProperty]) {
+        console.warn(`Error in orderedListByMonthDesc: ${groupByProperty} is not included in object properties`);
+        return [];
+      }
+      if (isNaN(new Date(items[0][groupByProperty]))) {
+        console.warn(`Error in orderedListByMonthDesc: ${groupByProperty} can not be converted to date`)
+        return [];
+      }
+    }
 
-  orderedListByMonthDesc = items => {
     // Groups will be saved as { 2: Array(3), 3: Array(8) }
     // | 2: is the month (March) | Array(3): are the messages quantity
     const grouped = items.reduce((group, item) => {
-      const itemMonth = item.created_at.split('-')[1].replace(/^0+/, '');
+      const itemMonth = item[groupByProperty].split('-')[1].replace(/^0+/, '');
       // eslint-disable-next-line no-param-reassign
       group[(itemMonth - 1).toString()] = group[itemMonth - 1] || [];
       group[(itemMonth - 1).toString()].push(item);

@@ -55,12 +55,12 @@ const SideMenuBody: React.FunctionComponent<SideMenuBodyProps> = ({
 };
 
 SideMenuBody.propTypes = {
-  children: Proptypes.array,
+  children: Proptypes.object,
   bodyStyle: Proptypes.instanceOf(Object),
 };
 
 SideMenuBody.defaultProps = {
-  children: [],
+  children: {},
   bodyStyle:{},
 };
 

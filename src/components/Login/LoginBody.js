@@ -1,13 +1,7 @@
-import React from 'react';
-import {
-  View,
-  StyleSheet,
-  Text,
-  TextInput,
-  TouchableHighlight,
-} from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 import Proptypes from 'prop-types';
+import React from 'react';
+import { StyleSheet, Text, TextInput, TouchableHighlight, View } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import colors from '../../styles/colors';
 
 /**
@@ -108,6 +102,7 @@ class LoginBody extends React.Component {
 
   render() {
     const {
+      defaultEmail,
       bodyTitle,
       bodySubtitle,
       beforeInputText,
@@ -128,6 +123,7 @@ class LoginBody extends React.Component {
           <Text style={styles.subtitle}>{bodySubtitle}</Text>
           <Text style={styles.beforeInputText}>{beforeInputText}</Text>
           <TextInput
+            defaultValue={defaultEmail}
             style={styles.emailInput}
             placeholder={firstInputPlaceholder}
             onChangeText={text => onChangeEmail(text)}
@@ -181,6 +177,7 @@ class LoginBody extends React.Component {
 export default LoginBody;
 
 LoginBody.propTypes = {
+  defaultEmail: Proptypes.string,
   bodyTitle: Proptypes.string,
   bodySubtitle: Proptypes.string,
   beforeInputText: Proptypes.string,
@@ -191,6 +188,7 @@ LoginBody.propTypes = {
 };
 
 LoginBody.default = {
+  defaultEmail: '',
   bodyTitle: '',
   bodySubtitle: '',
   beforeInputText: '',

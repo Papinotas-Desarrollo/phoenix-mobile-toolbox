@@ -1,8 +1,8 @@
 /* @flow */
-import React from 'react';
-import { LoginHeader, LoginBody, LoginButtons } from './';
 import Proptypes from 'prop-types';
+import React from 'react';
 import { KeyboardAvoidingView } from 'react-native';
+import { LoginBody, LoginButtons, LoginHeader } from './';
 
 /**
  *
@@ -28,6 +28,7 @@ import { KeyboardAvoidingView } from 'react-native';
  *     ];
  * 
  *     const props = {
+ *       defaultEmail: '',
  *       source: require('..'),
  *       headerStyle: styles.headerStyle,
  *       bodyTitle: '',
@@ -49,6 +50,7 @@ import { KeyboardAvoidingView } from 'react-native';
 export default class LoginScreen extends React.Component {
   render() {
     const {
+      defaultEmail,
       source,
       headerStyle,
       bodyTitle,
@@ -65,6 +67,7 @@ export default class LoginScreen extends React.Component {
       <KeyboardAvoidingView behavior="position" keyboardVerticalOffset={64}>
         <LoginHeader source={source} headerStyle={headerStyle} />
         <LoginBody
+          defaultEmail={defaultEmail}
           bodyTitle={bodyTitle}
           bodySubtitle={bodySubtitle}
           beforeInputText={beforeInputText}
@@ -80,6 +83,7 @@ export default class LoginScreen extends React.Component {
 }
 
 LoginScreen.propTypes = {
+  defaultEmail: Proptypes.string,
   source: Proptypes.number,
   headerStyle: Proptypes.object,
   bodyTitle: Proptypes.string,
@@ -93,6 +97,7 @@ LoginScreen.propTypes = {
 };
 
 LoginScreen.default = {
+  defaultEmail: '',
   headerStyle: {},
   bodyTitle: '',
   bodySubtitle: '',

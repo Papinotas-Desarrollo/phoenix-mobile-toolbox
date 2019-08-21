@@ -7,6 +7,7 @@ export interface LoginHeaderProps{
 }
 
 export interface LoginBodyProps{
+  defaultEmail?: string;
   bodyTitle?: string;
   bodySubtitle?: string;
   beforeInputText?: string;

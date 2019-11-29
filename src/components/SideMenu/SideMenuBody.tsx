@@ -1,7 +1,7 @@
-import * as React from 'react';
-import { StyleSheet, View, Text, StyleProp } from 'react-native';
-import Dictionary from '../../conf/dictionary';
 import Proptypes from 'prop-types';
+import * as React from 'react';
+import { StyleProp, StyleSheet, Text, View } from 'react-native';
+import Dictionary from '../../conf/dictionary';
 
 /**
  *
@@ -55,13 +55,13 @@ const SideMenuBody: React.FunctionComponent<SideMenuBodyProps> = ({
 };
 
 SideMenuBody.propTypes = {
-  children: Proptypes.object,
+  children: Proptypes.array,
   bodyStyle: Proptypes.instanceOf(Object),
 };
 
 SideMenuBody.defaultProps = {
-  children: {},
-  bodyStyle:{},
+  children: [],
+  bodyStyle: {},
 };
 
 export default SideMenuBody;

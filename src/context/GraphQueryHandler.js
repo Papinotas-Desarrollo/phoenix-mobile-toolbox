@@ -2,13 +2,23 @@ import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
 import Dictionary from '../conf/dictionary';
 
+const sa = () => '';
+
 export const GraphQueryHandlerContext = React.createContext();
 
 export class GraphQueryHandler extends PureComponent {
   state = {
     selectedYear: {
-      firstDay: new Date(new Date().getFullYear().toString(), '0', '1').toISOString(),
-      lastDay: new Date(new Date().getFullYear().toString(), '11', '31').toISOString(),
+      firstDay: new Date(
+        new Date().getFullYear().toString(),
+        '0',
+        '1'
+      ).toISOString(),
+      lastDay: new Date(
+        new Date().getFullYear().toString(),
+        '11',
+        '31'
+      ).toISOString(),
     },
     availableYears: [],
   };
@@ -32,22 +42,39 @@ export class GraphQueryHandler extends PureComponent {
    * @param {string} groupByProperty Property that must be parseable to date ISOString
    * @returns {object}
    */
-  orderedListByMonthDesc = (items: Array = [], groupByProperty: string = 'created_at') => {
+  orderedListByMonthDesc = (
+    items: Array = [],
+    groupByProperty: string = 'created_at'
+  ) => {
     if (items && items.length > 0) {
-      if (!items[0][groupByProperty]) {
-        console.warn(`Error in orderedListByMonthDesc: ${groupByProperty} is not included in object properties`);
+      if (items.filter(item => !sa(item, groupByProperty)).length) {
+        // searchs if any item does not include property
+        console.warn(
+          `Error in orderedListByMonthDesc: ${groupByProperty} is not included in object properties`
+        );
+        if (groupByProperty !== 'created_at') {
+          console.warn('Returning with default `created_at` property');
+          return this.messagesReducer(items, 'created_at');
+        }
         return [];
       }
-      if (isNaN(new Date(items[0][groupByProperty]))) {
-        console.warn(`Error in orderedListByMonthDesc: ${groupByProperty} can not be converted to date`)
+      if (isNaN(new Date(sa(items[0], groupByProperty)))) {
+        console.warn(
+          `Error in orderedListByMonthDesc: ${groupByProperty} can not be converted to date`
+        );
         return [];
       }
     }
+    return this.messagesReducer(items, groupByProperty);
+  };
 
+  messagesReducer = (items, groupByProperty) => {
     // Groups will be saved as { 2: Array(3), 3: Array(8) }
     // | 2: is the month (March) | Array(3): are the messages quantity
     const grouped = items.reduce((group, item) => {
-      const itemMonth = item[groupByProperty].split('-')[1].replace(/^0+/, '');
+      const itemMonth = sa(item, groupByProperty)
+        .split('-')[1]
+        .replace(/^0+/, '');
       // eslint-disable-next-line no-param-reassign
       group[(itemMonth - 1).toString()] = group[itemMonth - 1] || [];
       group[(itemMonth - 1).toString()].push(item);
@@ -69,15 +96,13 @@ export class GraphQueryHandler extends PureComponent {
     const { selectedYear, availableYears } = this.state;
     return (
       <GraphQueryHandlerContext.Provider
-        value={
-          {
-            selectedYear,
-            changeYear: this.changeYear,
-            orderedListByMonthDesc: this.orderedListByMonthDesc,
-            availableYears,
-            months: Dictionary.months,
-          }
-        }
+        value={{
+          selectedYear,
+          changeYear: this.changeYear,
+          orderedListByMonthDesc: this.orderedListByMonthDesc,
+          availableYears,
+          months: Dictionary.months,
+        }}
       >
         {this.props.children}
       </GraphQueryHandlerContext.Provider>

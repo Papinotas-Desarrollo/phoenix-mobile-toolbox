@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
 import Dictionary from '../conf/dictionary';
-
-const sa = () => '';
+import { sa } from '../utils';
 
 export const GraphQueryHandlerContext = React.createContext();
 
@@ -102,8 +101,7 @@ export class GraphQueryHandler extends PureComponent {
           orderedListByMonthDesc: this.orderedListByMonthDesc,
           availableYears,
           months: Dictionary.months,
-        }}
-      >
+        }}>
         {this.props.children}
       </GraphQueryHandlerContext.Provider>
     );

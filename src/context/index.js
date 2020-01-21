@@ -1,4 +1,4 @@
 import { GraphQueryHandler, GraphQueryHandlerContext } from './GraphQueryHandler';
 
-export { GraphQueryHandler, GraphQueryHandlerContext, };
+export { GraphQueryHandler, GraphQueryHandlerContext };
 

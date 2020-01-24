@@ -66,6 +66,7 @@ const styles = StyleSheet.create({
     marginRight: 16,
     marginBottom: 10,
     fontSize: 16,
+    color: colors.black,
   },
   passwordInputContainer: {
     flexDirection: 'row',
@@ -77,6 +78,7 @@ const styles = StyleSheet.create({
     flex: 0.8,
     marginBottom: 10,
     fontSize: 16,
+    color: colors.black,
   },
   passwordInputIcon: {
     flex: 0.2,

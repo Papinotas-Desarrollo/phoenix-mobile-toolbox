@@ -66,6 +66,7 @@ const styles = StyleSheet.create({
     marginRight: 16,
     marginBottom: 10,
     fontSize: 16,
+    color: colors.black,
   },
   passwordInputContainer: {
     flexDirection: 'row',
@@ -77,6 +78,7 @@ const styles = StyleSheet.create({
     flex: 0.8,
     marginBottom: 10,
     fontSize: 16,
+    color: colors.black,
   },
   passwordInputIcon: {
     flex: 0.2,
@@ -131,6 +133,7 @@ class LoginBody extends React.Component {
             onBlur={() => this.setState({ currentInputFocus: 0 })}
             keyboardType="email-address"
             autoCapitalize="none"
+            placeholderTextColor={colors.mediumGray}
           />
           <View
             style={[
@@ -147,12 +150,12 @@ class LoginBody extends React.Component {
               onFocus={() => this.setState({ currentInputFocus: 2 })}
               onBlur={() => this.setState({ currentInputFocus: 0 })}
               autoCapitalize="none"
+              placeholderTextColor={colors.mediumGray}
             />
             <TouchableHighlight
               underlayColor={colors.transparent}
               style={styles.passwordInputIcon}
-              onPress={() => this.setState({ passwordHide: !passwordHide })}
-            >
+              onPress={() => this.setState({ passwordHide: !passwordHide })}>
               <Icon
                 color={
                   passwordHide ? colors.papinotasBlue : colors.papinotasOrange

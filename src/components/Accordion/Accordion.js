@@ -29,37 +29,45 @@ type Theme = {
   },
 };
 
-type Props = {|
+type customExpandIconProps = {
+  openName: string;
+  closeName: string
+}
+
+type Props = {
   /**
    * Title text for the list accordion.
    */
   title: React.Node,
-    /**
-     * Description text for the list accordion.
-     */
-    description ?: React.Node,
-    /**
-     * Callback which returns a React element to display on the left side.
-     */
-    left ?: (props: { color: string }) => React.Node,
-    /**
-     * Whether the accordion is expanded
-     * If this prop is provided, the accordion will behave as a "controlled component".
-     * You'll need to update this prop when you want to toggle the component or on `onPress`.
-     */
-    expanded ?: boolean,
-    /**
-     * Function to execute on press.
-     */
-    onPress ?: () => mixed,
-    /**
-     * Content of the section.
-     */
-    children: React.Node,
-      theme: Theme,
-        style ?: any,
-        iconColor: string,
-|};
+  /**
+   * Description text for the list accordion.
+   */
+  description?: React.Node,
+  /**
+   * Callback which returns a React element to display on the left side.
+   */
+  left?: (props: { color: string }) => React.Node,
+  /**
+   * Whether the accordion is expanded
+   * If this prop is provided, the accordion will behave as a "controlled component".
+   * You'll need to update this prop when you want to toggle the component or on `onPress`.
+   */
+  expanded?: boolean,
+  /**
+   * Function to execute on press.
+   */
+  onPress?: () => mixed,
+  /**
+   * Content of the section.
+   */
+  children: React.Node,
+  theme: Theme,
+  style?: any,
+  iconColor: string,
+  customExpandIcon?: React.ComponentType<customExpandIconProps>,
+  right?: React.ComponentType,
+  hideBorderBottomWidth?: boolean,
+};
 
 type State = {
   expanded: boolean,
@@ -93,6 +101,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  titleContainer: {
+    flex: 1.26,
+    flexDirection: 'row',
+  },
 });
 
 class ListAccordion extends React.Component<Props, State> {
@@ -114,7 +126,7 @@ class ListAccordion extends React.Component<Props, State> {
   };
 
   render() {
-    const { left, title, description, children, theme, style, onPress } = this.props;
+    const { left, title, description, children, theme, style, onPress, customExpandIcon, right, hideBorderBottomWidth } = this.props;
     const { iconColor } = this.state;
     const descriptionColor = color(theme.colors.text)
       .alpha(0.54)
@@ -125,50 +137,67 @@ class ListAccordion extends React.Component<Props, State> {
       this.props.expanded !== undefined
         ? this.props.expanded
         : this.state.expanded;
+
+    const icon = customExpandIcon
+      ? React.cloneElement(customExpandIcon, { name: expanded ? customExpandIcon.props.openName : customExpandIcon.props.closeName })
+      : (
+        <Icon
+          color={iconColor}
+          name={expanded ? 'keyboard-arrow-up' : 'keyboard-arrow-down'}
+          size={24}
+        />
+      )
+
+    const { backgroundColor, ...newStyle } = style
+
     return (
       <View>
         <TouchableOpacity
-          style={[styles.container, style, { borderBottomWidth: expanded ? 0 : 1, }]}
+          style={[styles.container, newStyle, !hideBorderBottomWidth && { borderBottomWidth: expanded ? 0 : 1 }]}
           onPress={onPress || this.handlePress}
           accessibilityTraits="button"
           accessibilityComponentType="button"
           accessibilityRole="button"
         >
-          <View style={styles.row} pointerEvents="none">
-            {left
-              ? left({
-                color: expanded ? theme.colors.primary : descriptionColor,
-              })
-              : null}
-            <View style={[styles.item, styles.content]}>
-              {title}
-              {description && (
-                <Text
-                  numberOfLines={2}
-                  style={[
-                    styles.description,
-                    {
-                      color: descriptionColor,
-                    },
-                  ]}
-                >
-                  {description}
-                </Text>
-              )}
+          <View style={styles.row}>
+            <View style={[styles.titleContainer, { backgroundColor }]} pointerEvents="none">
+              {left
+                ? left({
+                  color: expanded ? theme.colors.primary : descriptionColor,
+                })
+                : null}
+              <View style={[styles.item, styles.content]}>
+                {title}
+                {description && (
+                  <Text
+                    numberOfLines={2}
+                    style={[
+                      styles.description,
+                      {
+                        color: descriptionColor,
+                      },
+                    ]}
+                  >
+                    {description}
+                  </Text>
+                )}
+              </View>
+              <View style={[styles.item, description && styles.multiline, styles.icon]}>
+                {icon}
+              </View>
+
             </View>
-            <View style={[styles.item, description && styles.multiline, styles.icon]}>
-              <Icon
-                color={iconColor}
-                name={expanded ? 'keyboard-arrow-up' : 'keyboard-arrow-down'}
-                size={24}
-              />
-            </View>
+            {
+              right && right
+            }
           </View>
         </TouchableOpacity>
-        {expanded
-          ? children
-          : null}
-      </View>
+        {
+          expanded
+            ? children
+            : null
+        }
+      </View >
     );
   }
 }

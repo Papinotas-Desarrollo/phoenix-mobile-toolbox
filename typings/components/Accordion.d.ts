@@ -16,7 +16,6 @@ export interface AccordionProps {
   style?: StyleProp<ViewStyle>;
   theme?: ThemeShape;
   iconColor?: string;
-  containerStyle?: any;
   customExpandIcon?: React.ComponentType<customExpandIconProps>;
   right?: React.ComponentType;
   hideBorderBottomWidth?: boolean;

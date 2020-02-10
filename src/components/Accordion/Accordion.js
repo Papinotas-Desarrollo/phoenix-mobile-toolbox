@@ -64,7 +64,6 @@ type Props = {
   theme: Theme,
   style?: any,
   iconColor: string,
-  containerStyle?: any,
   customExpandIcon?: React.ComponentType<customExpandIconProps>,
   right?: React.ComponentType,
   hideBorderBottomWidth?: boolean,
@@ -127,7 +126,7 @@ class ListAccordion extends React.Component<Props, State> {
   };
 
   render() {
-    const { left, title, description, children, theme, style, onPress, containerStyle, customExpandIcon, right, hideBorderBottomWidth } = this.props;
+    const { left, title, description, children, theme, style, onPress, customExpandIcon, right, hideBorderBottomWidth } = this.props;
     const { iconColor } = this.state;
     const descriptionColor = color(theme.colors.text)
       .alpha(0.54)

@@ -4,9 +4,10 @@ import { HelpAccordion } from './components/Help';
 import * as Login from './components/Login';
 import * as SideMenu from './components/SideMenu';
 import { YearSlider } from './components/Slider';
+import * as Stats from './components/Stats';
 import colors from './styles/colors';
 
 export * from './context';
 export * from './utils';
-export { colors, Login, ErrorBoundaryWrapper, HelpAccordion, Accordion, YearSlider, SideMenu, };
+export { colors, Login, ErrorBoundaryWrapper, HelpAccordion, Accordion, YearSlider, SideMenu, Stats, };
 

@@ -29,6 +29,9 @@ const Dictionary = {
     'Diciembre',
   ],
   noChildren: 'No children props passed',
+  fillbox: {
+    percent: '%',
+  }
 };
 
 export default Dictionary;

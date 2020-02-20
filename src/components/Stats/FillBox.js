@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import Dictionary from '../../conf/dictionary';
+import colors from '../../styles/colors';
 import { hexToRgbAWithOpacity } from '../../utils';
 
 const styles = StyleSheet.create({
@@ -35,7 +37,7 @@ const getTotalPercentage = ({ itemsTotal, finalTotal }) => Math.round((itemsTota
 
 const totalPercentageComponent = ({ itemsTotal, finalTotal }) => (
   <Text style={styles.percentComponent}>
-    {getTotalPercentage({ itemsTotal, finalTotal })} {Dictionary.classbook.percent}
+    {getTotalPercentage({ itemsTotal, finalTotal })} {Dictionary.fillbox.percent}
   </Text>
 )
 

@@ -1,1 +1,2 @@
-export * from './FillBox';
+export { default as FillBox } from './FillBox';
+

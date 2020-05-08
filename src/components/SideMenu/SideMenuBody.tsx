@@ -1,6 +1,6 @@
 import Proptypes from 'prop-types';
 import * as React from 'react';
-import { StyleProp, StyleSheet, Text, View } from 'react-native';
+import { ScrollView, StyleProp, StyleSheet, Text, View } from 'react-native';
 import Dictionary from '../../conf/dictionary';
 
 /**
@@ -34,10 +34,7 @@ interface SideMenuBodyProps {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    flexDirection: 'column',
     justifyContent: 'flex-start',
-    marginHorizontal: 5,
   },
 });
 
@@ -46,7 +43,11 @@ const SideMenuBody: React.FunctionComponent<SideMenuBodyProps> = ({
   bodyStyle,
 }) => {
   if (React.Children.count(children) > 0)
-    return <View style={[styles.container, bodyStyle]}>{children}</View>;
+    return (
+      <ScrollView>
+        {children}
+      </ScrollView>
+    );
   return (
     <View style={[styles.container, bodyStyle]}>
       <Text>{Dictionary.noChildren}</Text>

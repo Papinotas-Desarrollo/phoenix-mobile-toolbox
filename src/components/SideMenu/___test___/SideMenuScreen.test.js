@@ -1,45 +1,43 @@
 import React from 'react';
+import { Text, View } from 'react-native';
 import { render } from 'react-native-testing-library';
 import { SideMenuScreen } from '../';
-import { Text, View } from 'react-native';
-import Dictionary from '../../../conf/dictionary';
 
 const childrenProp = [
-  <Text key="text1">Text1</Text>,
-  <Text key="text2">Text2</Text>,
-  <Text key="text3">Text3</Text>,
+  <Text key="text1">childrenProp</Text>,
+  <Text key="text2">childrenProp</Text>,
+  <Text key="text3">childrenProp</Text>,
 ];
 const headerProp = [
   <View key="view1">
-    <Text key="text4">Text4</Text>
+    <Text key="text4">headerProp</Text>
   </View>,
 ];
 
 describe('Render tests', () => {
   it('should render when there are no children', () => {
     const props = {
-      containerStyle: {},
       buttons: [],
       header: [],
       headerStyle: {},
       bodyStyle: {},
     };
-    const { getByTestId } = render(<SideMenuScreen {...props} />);
+    const { container } = render(<SideMenuScreen {...props} />);
 
-    const view = getByTestId('rootView');
-    expect(view.children.length).toBe(1);
+    expect(container).toBeTruthy();
   });
   it('should render when it has children', () => {
     const props = {
-      containerStyle: {},
       buttons: childrenProp,
       header: headerProp,
       headerStyle: {},
       bodyStyle: {},
     };
-    const { getByTestId } = render(<SideMenuScreen {...props} />);
+    const { getAllByText } = render(<SideMenuScreen {...props} />);
 
-    const view = getByTestId('rootView');
-    expect(view.children.length).toBe(1);
+    const header = getAllByText('headerProp');
+    const scrollViewChildren = getAllByText('childrenProp');
+    expect(header.length).toBe(1);
+    expect(scrollViewChildren.length).toBe(3);
   });
 });

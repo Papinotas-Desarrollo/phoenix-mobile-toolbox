@@ -1,14 +1,21 @@
 import React from 'react';
+import { Text, TouchableOpacity } from 'react-native';
 import { fireEvent, render } from 'react-native-testing-library';
 import { SideMenuBody } from '../';
-import { Text } from 'react-native';
 import Dictionary from '../../../conf/dictionary';
 
-const childrenProp = [
-  <Text key="text1">Text1</Text>,
-  <Text key="text2">Text2</Text>,
-  <Text key="text3">Text3</Text>,
-];
+const childrenLength = 20;
+const childrenCallback = jest.fn();
+const childrenProp = Array.from({ length: childrenLength }).map(
+  (item, index) => (
+    <TouchableOpacity
+      onPress={childrenCallback}
+      key={`item-${index}`}
+      testID="scrollview-children">
+      <Text>{`Texto${index}`}</Text>
+    </TouchableOpacity>
+  )
+);
 
 describe('Render tests', () => {
   it('should render when there are no children', () => {
@@ -23,8 +30,26 @@ describe('Render tests', () => {
     const props = {
       children: childrenProp,
     };
-    const { getByType } = render(<SideMenuBody {...props} />);
-    const view = getByType('View');
-    expect(view.children.length).toBe(3);
+    const { getAllByTestId } = render(<SideMenuBody {...props} />);
+    const touchables = getAllByTestId('scrollview-children');
+    expect(touchables.length).toBe(childrenLength);
+  });
+  it('should scroll and select last item', async () => {
+    const props = {
+      children: childrenProp,
+      onScroll: jest.fn(),
+    };
+    const eventData = {
+      nativeEvent: {
+        contentOffset: {
+          y: 999,
+        },
+      },
+    };
+    const { getByTestId, getAllByTestId } = render(<SideMenuBody {...props} />);
+    const scrollview = getByTestId('sidemenu-body-scrollview');
+    await fireEvent.scroll(scrollview, eventData);
+    fireEvent.press(getAllByTestId('scrollview-children')[19]);
+    expect(childrenCallback).toHaveBeenCalled();
   });
 });

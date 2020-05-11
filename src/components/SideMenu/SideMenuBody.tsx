@@ -1,6 +1,6 @@
 import Proptypes from 'prop-types';
 import * as React from 'react';
-import { StyleProp, StyleSheet, Text, View } from 'react-native';
+import { ScrollView, StyleProp, StyleSheet, Text, View } from 'react-native';
 import Dictionary from '../../conf/dictionary';
 
 /**
@@ -29,24 +29,27 @@ import Dictionary from '../../conf/dictionary';
 
 interface SideMenuBodyProps {
   children: Array<any>;
-  bodyStyle: StyleProp<Object>;
+  bodyStyle?: StyleProp<Object>;
+  onScroll?: Function;
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    flexDirection: 'column',
     justifyContent: 'flex-start',
-    marginHorizontal: 5,
   },
 });
 
 const SideMenuBody: React.FunctionComponent<SideMenuBodyProps> = ({
   children,
   bodyStyle,
+  onScroll,
 }) => {
   if (React.Children.count(children) > 0)
-    return <View style={[styles.container, bodyStyle]}>{children}</View>;
+    return (
+      <ScrollView testID="sidemenu-body-scrollview" onScroll={onScroll}>
+        {children}
+      </ScrollView>
+    );
   return (
     <View style={[styles.container, bodyStyle]}>
       <Text>{Dictionary.noChildren}</Text>
@@ -57,11 +60,13 @@ const SideMenuBody: React.FunctionComponent<SideMenuBodyProps> = ({
 SideMenuBody.propTypes = {
   children: Proptypes.array,
   bodyStyle: Proptypes.instanceOf(Object),
+  onScroll: Proptypes.func,
 };
 
 SideMenuBody.defaultProps = {
   children: [],
   bodyStyle: {},
+  onScroll: () => {},
 };
 
 export default SideMenuBody;

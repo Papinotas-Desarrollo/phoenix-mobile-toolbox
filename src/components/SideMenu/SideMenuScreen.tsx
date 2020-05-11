@@ -1,7 +1,7 @@
 /* @flow */
 import Proptypes from 'prop-types';
 import * as React from 'react';
-import { SafeAreaView, ScrollView, StyleProp } from 'react-native';
+import { StyleProp } from 'react-native';
 import { SideMenuBody, SideMenuHeader } from '.';
 
 /**
@@ -32,44 +32,42 @@ import { SideMenuBody, SideMenuHeader } from '.';
  */
 
 interface SideMenuScreenProps {
-  containerStyle: StyleProp<Object>;
   buttons: Array<any>;
   header: Array<any>;
   headerStyle: StyleProp<Object>;
   bodyStyle: StyleProp<Object>;
+  onScroll: Function;
 }
 export default class SideMenuScreen extends React.Component<SideMenuScreenProps> {
   render() {
     const {
-      containerStyle,
       buttons,
       header,
       headerStyle,
       bodyStyle,
+      onScroll,
     } = this.props;
     return (
-      <SafeAreaView testID="rootView" style={containerStyle}>
+      <>
         <SideMenuHeader headerStyle={headerStyle}>{header}</SideMenuHeader>
-        <ScrollView style={{ flex: 1 }}>
-          <SideMenuBody bodyStyle={bodyStyle}>{buttons}</SideMenuBody>
-        </ScrollView>
-      </SafeAreaView>
+        <SideMenuBody bodyStyle={bodyStyle} onScroll={onScroll}>{buttons}</SideMenuBody>
+      </>
     );
   }
 }
 
 SideMenuScreen.propTypes = {
-  containerStyle: Proptypes.instanceOf(Object),
   buttons: Proptypes.array,
   header: Proptypes.array,
   headerStyle: Proptypes.instanceOf(Object),
   bodyStyle: Proptypes.instanceOf(Object),
+  onScroll: Proptypes.func,
 };
 
 SideMenuScreen.defaultProps = {
-  containerStyle: {},
   buttons: [],
   header: [],
   headerStyle: {},
   bodyStyle: {},
+  onScroll: () => {},
 };

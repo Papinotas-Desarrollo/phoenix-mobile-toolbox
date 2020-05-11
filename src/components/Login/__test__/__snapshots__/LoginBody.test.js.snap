@@ -58,9 +58,11 @@ Array [
       onChangeText={[Function]}
       onFocus={[Function]}
       placeholder="firstInputPlaceholder"
+      placeholderTextColor="#9a9a9a"
       rejectResponderTermination={true}
       style={
         Object {
+          "color": "#000000",
           "fontSize": 16,
           "marginBottom": 10,
           "marginLeft": 13,
@@ -100,10 +102,12 @@ Array [
         onChangeText={[Function]}
         onFocus={[Function]}
         placeholder="secondInputPlaceholder"
+        placeholderTextColor="#9a9a9a"
         rejectResponderTermination={true}
         secureTextEntry={true}
         style={
           Object {
+            "color": "#000000",
             "flex": 0.8,
             "fontSize": 16,
             "marginBottom": 10,
@@ -113,7 +117,9 @@ Array [
       />
       <View
         accessible={true}
+        focusable={true}
         isTVSelectable={true}
+        onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}

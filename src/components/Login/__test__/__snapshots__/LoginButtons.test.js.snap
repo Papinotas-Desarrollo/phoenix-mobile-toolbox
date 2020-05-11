@@ -1,5 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Snapshot test No buttons snapshot 1`] = `ShallowWrapper {}`;
-
-exports[`Snapshot test With buttons snapshot 1`] = `ShallowWrapper {}`;

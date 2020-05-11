@@ -1,5 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Snapshot test No props snapshot 1`] = `ShallowWrapper {}`;
-
-exports[`Snapshot test With props snapshot 1`] = `ShallowWrapper {}`;

@@ -7,7 +7,6 @@ describe('Snapshot test', () => {
   it('No buttons snapshot', () => {
     const buttons = [];
     const tree = shallow(<LoginButtons>{buttons}</LoginButtons>);
-    expect(tree).toMatchSnapshot();
     expect(tree.children().length).toBe(0);
   });
   it('With buttons snapshot', () => {
@@ -17,7 +16,6 @@ describe('Snapshot test', () => {
     ];
 
     const tree = shallow(<LoginButtons>{buttons}</LoginButtons>);
-    expect(tree).toMatchSnapshot();
     expect(tree.children().length).toBe(2);
   });
 });

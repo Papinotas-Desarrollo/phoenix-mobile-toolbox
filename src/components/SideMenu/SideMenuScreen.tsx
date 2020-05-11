@@ -36,6 +36,7 @@ interface SideMenuScreenProps {
   header: Array<any>;
   headerStyle: StyleProp<Object>;
   bodyStyle: StyleProp<Object>;
+  onScroll: Function;
 }
 export default class SideMenuScreen extends React.Component<SideMenuScreenProps> {
   render() {
@@ -44,11 +45,12 @@ export default class SideMenuScreen extends React.Component<SideMenuScreenProps>
       header,
       headerStyle,
       bodyStyle,
+      onScroll,
     } = this.props;
     return (
       <>
         <SideMenuHeader headerStyle={headerStyle}>{header}</SideMenuHeader>
-        <SideMenuBody bodyStyle={bodyStyle}>{buttons}</SideMenuBody>
+        <SideMenuBody bodyStyle={bodyStyle} onScroll={onScroll}>{buttons}</SideMenuBody>
       </>
     );
   }
@@ -59,6 +61,7 @@ SideMenuScreen.propTypes = {
   header: Proptypes.array,
   headerStyle: Proptypes.instanceOf(Object),
   bodyStyle: Proptypes.instanceOf(Object),
+  onScroll: Proptypes.func,
 };
 
 SideMenuScreen.defaultProps = {
@@ -66,4 +69,5 @@ SideMenuScreen.defaultProps = {
   header: [],
   headerStyle: {},
   bodyStyle: {},
+  onScroll: () => {},
 };

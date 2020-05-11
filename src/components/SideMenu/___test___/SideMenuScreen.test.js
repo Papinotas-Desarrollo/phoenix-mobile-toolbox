@@ -21,10 +21,10 @@ describe('Render tests', () => {
       header: [],
       headerStyle: {},
       bodyStyle: {},
+      onScroll: () => { },
     };
-    const { container } = render(<SideMenuScreen {...props} />);
 
-    expect(container).toBeTruthy();
+    expect(render(<SideMenuScreen {...props} />).toJSON()).toBeTruthy();
   });
   it('should render when it has children', () => {
     const props = {
@@ -32,6 +32,7 @@ describe('Render tests', () => {
       header: headerProp,
       headerStyle: {},
       bodyStyle: {},
+      onScroll: () => { },
     };
     const { getAllByText } = render(<SideMenuScreen {...props} />);
 

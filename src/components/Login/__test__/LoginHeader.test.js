@@ -6,7 +6,6 @@ import { LoginHeader } from '../';
 describe('Snapshot test', () => {
   it('No props snapshot', () => {
     const tree = shallow(<LoginHeader />);
-    expect(tree).toMatchSnapshot();
     expect(
       tree
         .children()
@@ -22,7 +21,6 @@ describe('Snapshot test', () => {
       },
     };
     const tree = shallow(<LoginHeader {...props} />);
-    expect(tree).toMatchSnapshot();
     expect(tree.children().find(Image).length).toBe(1);
     expect(
       tree

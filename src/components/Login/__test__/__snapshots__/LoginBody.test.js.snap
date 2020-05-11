@@ -118,6 +118,7 @@ Array [
       <View
         accessible={true}
         focusable={true}
+        isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -140,7 +141,7 @@ Array [
                 "color": "#4A90E2",
                 "fontSize": 30,
               },
-              undefined,
+              null,
               Object {
                 "fontFamily": "Material Icons",
                 "fontStyle": "normal",

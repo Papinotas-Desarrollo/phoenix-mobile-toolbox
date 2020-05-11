@@ -110,6 +110,7 @@ Array [
               "top": 6,
             }
           }
+          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -138,7 +139,9 @@ Array [
             ]
           }
         >
-          <View>
+          <View
+            style={null}
+          >
             <View
               style={
                 Array [
@@ -274,6 +277,7 @@ Array [
           <View
             accessible={true}
             focusable={true}
+            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -314,6 +318,7 @@ Array [
             <View
               accessible={true}
               focusable={true}
+              isTVSelectable={true}
               onClick={[Function]}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
@@ -358,6 +363,7 @@ Array [
             <View
               accessible={true}
               focusable={true}
+              isTVSelectable={true}
               onClick={[Function]}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
@@ -453,6 +459,7 @@ Array [
           <View
             accessible={true}
             focusable={true}
+            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -485,6 +492,7 @@ Array [
           <View
             accessible={true}
             focusable={true}
+            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}

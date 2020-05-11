@@ -50,7 +50,6 @@ exports[`Snapshot test With props snapshot 1`] = `
     initialNumToRender={10}
     keyExtractor={[Function]}
     maxToRenderPerBatch={10}
-    numColumns={1}
     onContentSizeChange={[Function]}
     onEndReachedThreshold={2}
     onLayout={[Function]}
@@ -81,7 +80,8 @@ exports[`Snapshot test With props snapshot 1`] = `
       >
         <View
           accessible={true}
-          isTVSelectable={true}
+          focusable={true}
+          onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
           onResponderRelease={[Function]}
@@ -124,7 +124,8 @@ exports[`Snapshot test With props snapshot 1`] = `
       >
         <View
           accessible={true}
-          isTVSelectable={true}
+          focusable={true}
+          onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
           onResponderRelease={[Function]}
@@ -167,7 +168,8 @@ exports[`Snapshot test With props snapshot 1`] = `
       >
         <View
           accessible={true}
-          isTVSelectable={true}
+          focusable={true}
+          onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
           onResponderRelease={[Function]}

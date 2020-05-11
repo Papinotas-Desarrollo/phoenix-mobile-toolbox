@@ -24,6 +24,6 @@ function setUpDomEnvironment() {
   copyProps(window, global);
 }
 
-setUpDomEnvironment();
+// setUpDomEnvironment();
 
 configure({ adapter: new Adapter() });

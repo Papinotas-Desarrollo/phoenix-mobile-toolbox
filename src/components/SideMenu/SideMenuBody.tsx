@@ -29,7 +29,8 @@ import Dictionary from '../../conf/dictionary';
 
 interface SideMenuBodyProps {
   children: Array<any>;
-  bodyStyle: StyleProp<Object>;
+  bodyStyle?: StyleProp<Object>;
+  onScroll?: Function;
 }
 
 const styles = StyleSheet.create({
@@ -41,10 +42,11 @@ const styles = StyleSheet.create({
 const SideMenuBody: React.FunctionComponent<SideMenuBodyProps> = ({
   children,
   bodyStyle,
+  onScroll,
 }) => {
   if (React.Children.count(children) > 0)
     return (
-      <ScrollView>
+      <ScrollView testID="sidemenu-body-scrollview" onScroll={onScroll}>
         {children}
       </ScrollView>
     );
@@ -58,11 +60,13 @@ const SideMenuBody: React.FunctionComponent<SideMenuBodyProps> = ({
 SideMenuBody.propTypes = {
   children: Proptypes.array,
   bodyStyle: Proptypes.instanceOf(Object),
+  onScroll: Proptypes.func,
 };
 
 SideMenuBody.defaultProps = {
   children: [],
   bodyStyle: {},
+  onScroll: () => {},
 };
 
 export default SideMenuBody;

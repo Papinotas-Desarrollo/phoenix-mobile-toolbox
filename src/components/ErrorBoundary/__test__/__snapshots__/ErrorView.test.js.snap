@@ -46,6 +46,8 @@ Array [
         />
         <View
           accessible={true}
+          focusable={false}
+          onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
           onResponderRelease={[Function]}
@@ -99,6 +101,7 @@ Array [
         <View
           accessibilityRole="button"
           accessible={true}
+          focusable={true}
           hitSlop={
             Object {
               "bottom": 6,
@@ -107,7 +110,7 @@ Array [
               "top": 6,
             }
           }
-          isTVSelectable={true}
+          onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
           onResponderRelease={[Function]}
@@ -135,9 +138,7 @@ Array [
             ]
           }
         >
-          <View
-            style={null}
-          >
+          <View>
             <View
               style={
                 Array [
@@ -272,7 +273,8 @@ Array [
           </Text>
           <View
             accessible={true}
-            isTVSelectable={true}
+            focusable={true}
+            onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
             onResponderRelease={[Function]}
@@ -311,7 +313,8 @@ Array [
           >
             <View
               accessible={true}
-              isTVSelectable={true}
+              focusable={true}
+              onClick={[Function]}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
               onResponderRelease={[Function]}
@@ -354,7 +357,8 @@ Array [
             </View>
             <View
               accessible={true}
-              isTVSelectable={true}
+              focusable={true}
+              onClick={[Function]}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
               onResponderRelease={[Function]}
@@ -448,7 +452,8 @@ Array [
         >
           <View
             accessible={true}
-            isTVSelectable={true}
+            focusable={true}
+            onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
             onResponderRelease={[Function]}
@@ -479,7 +484,8 @@ Array [
           </View>
           <View
             accessible={true}
-            isTVSelectable={true}
+            focusable={true}
+            onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
             onResponderRelease={[Function]}

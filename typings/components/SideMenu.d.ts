@@ -1,13 +1,14 @@
 import * as React from 'react';
 
 export interface SideMenuHeaderProps{
-    children:React.ReactNodeArray;
+    children: React.ReactNodeArray;
     headerStyle?: any;
 }
 
 export interface SideMenuBodyProps{
-    children:React.ReactNodeArray;
+    children: React.ReactNodeArray;
     bodyStyle?: any;
+    onScroll?: Function;
 }
 
 export interface SideMenuScreenProps{}

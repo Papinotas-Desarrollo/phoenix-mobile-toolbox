@@ -1,8 +1,10 @@
+import colors from '../styles/colors';
+
 /**
- * 
+ *
  * @param {*} hex hex string color
  * @param {*} opacity (optional) for opacity, default: 0.5
- * 
+ *
  * Can be used as backgroundColor when you want only backgroundColor to have opacity
  */
 
@@ -15,7 +17,7 @@ export const hexToRgbAWithOpacity = (hex, opacity = 0.5) => {
     }
     c = `0x${c.join('')}`;
     const rgba = `rgba(${[(c >> 16) & 255, (c >> 8) & 255, c & 255].join(
-      ',',
+      ','
     )},${opacity})`;
     return rgba;
   }

@@ -9,5 +9,13 @@ import colors from './styles/colors';
 
 export * from './context';
 export * from './utils';
-export { colors, Login, ErrorBoundaryWrapper, HelpAccordion, Accordion, YearSlider, SideMenu, Stats, };
-
+export {
+  colors,
+  Login,
+  ErrorBoundaryWrapper,
+  HelpAccordion,
+  Accordion,
+  YearSlider,
+  SideMenu,
+  Stats,
+};

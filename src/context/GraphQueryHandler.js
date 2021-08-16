@@ -82,7 +82,7 @@ export class GraphQueryHandler extends PureComponent {
     return grouped;
   };
 
-  changeYear = year =>
+  changeYear = (year = new Date().getFullYear()) =>
     this.setState({
       selectedYear: {
         year,

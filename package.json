@@ -1,5 +1,5 @@
 {
-  "name": "@papinotas/phoenix-mobile-toolbox",
+  "name": "@papinotas-desarrollo/phoenix-mobile-toolbox",
   "version": "0.0.1-alpha.24",
   "description": "Components for react-native",
   "main": "./src/index.js",

@@ -22,6 +22,9 @@
     "type": "git",
     "url": "git+https://github.com/Papinotas-Desarrollo/phoenix-mobile-toolbox.git"
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "keywords": [
     "react-native",
     "phoenix",

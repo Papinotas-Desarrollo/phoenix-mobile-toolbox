@@ -28,7 +28,7 @@ export class GraphQueryHandler extends PureComponent {
   }
 
   getYearsRange = (startDate: string = null) => {
-    const startingYear = new Date(startDate || '01 January 2018').getFullYear();
+    const startingYear = new Date(startDate || '2018-01-01').getUTCFullYear();
     const currentYear = new Date().getFullYear();
     const yearsBetween = [];
     for (let i = startingYear; i <= currentYear; i++) yearsBetween.push(i);

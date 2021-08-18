@@ -27,8 +27,8 @@ export class GraphQueryHandler extends PureComponent {
     this.setState({ availableYears }, () => this.changeYear(availableYears[0]));
   }
 
-  getYearsRange = (startDate: string = null) => {
-    const startingYear = new Date(startDate || '01 January 2018').getFullYear();
+  getYearsRange = (startDate: string = '2018-01-01') => {
+    const startingYear = new Date(startDate).getUTCFullYear();
     const currentYear = new Date().getFullYear();
     const yearsBetween = [];
     for (let i = startingYear; i <= currentYear; i++) yearsBetween.push(i);
